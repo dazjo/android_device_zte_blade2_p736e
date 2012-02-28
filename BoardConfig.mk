@@ -38,9 +38,6 @@ WIFI_DRIVER_FW_PATH_STA := "/system/etc/fw_4330_b1_apsta.bin"
 WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/fw_4330b1.bin nvram_path=/system/etc/nv_4330b1.txt iface_name=wlan"
 WIFI_DRIVER_MODULE_NAME := "dhd"
 
-# GPS
-BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := blade2
-
 # # cat /proc/mtd
 # dev:    size   erasesize  name
 # mtd0: 00600000 00020000 "recovery"

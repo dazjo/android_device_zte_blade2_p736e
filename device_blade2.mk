@@ -59,6 +59,7 @@ PRODUCT_COPY_FILES += \
 
 # GPS
 PRODUCT_COPY_FILES += \
+    device/zte/blade2/prebuilt/lib/hw/gps.default.so:system/lib/hw/gps.default.so \
     device/zte/blade2/prebuilt/lib/libcommondefs.so:system/lib/libcommondefs.so \
     device/zte/blade2/prebuilt/lib/libloc_api-rpc-qc.so:system/lib/libloc_api-rpc-qc.so
 
