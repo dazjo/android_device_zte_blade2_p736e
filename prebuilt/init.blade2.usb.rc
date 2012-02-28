@@ -1,0 +1,22 @@
+on init
+    write /sys/module/g_android/parameters $ro.serialno
+    write /sys/module/g_android/parameters/product_id 1351
+    write /sys/devices/platform/android_usb/functions/cur_pid 1351
+    write /sys/devices/platform/android_usb/functions/enable_switch 0
+
+on property:sys.usb.config=mass_storage,adb
+    write /sys/module/g_android/parameters/product_id 1351
+    start adbd
+    setprop sys.usb.state $sys.usb.config
+
+on property:sys.usb.config=mass_storage,rndis,adb
+    write /sys/module/g_android/parameters/product_id 1364
+    start adbd
+    setprop sys.usb.state $sys.usb.config
+
+# Adding this in because adb is being removed from persist.sys.usb.config after booting
+on property:persist.service.adb.enable=1
+    start adbd
+
+on property:persist.service.adb.enable=0
+    stop adbd
