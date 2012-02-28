@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),blade2)
+ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),skate)
 
 LOCAL_PATH := $(call my-dir)
 
@@ -22,7 +22,7 @@ ifneq ($(TARGET_SIMULATOR),true)
 # hw/<SENSORS_HARDWARE_MODULE_ID>.<ro.product.board>.so
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := sensors.blade2
+LOCAL_MODULE := sensors.skate
 
 LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
 

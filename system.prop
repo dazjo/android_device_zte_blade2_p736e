@@ -1,12 +1,10 @@
 #
-# system.prop for blade2
+# system.prop for Skate
 #
 # Graphics and performance
 ro.sf.lcd_density=240
 ro.sf.hwrotation=180
 qemu.sf.lcd_density=240
-media.stagefright.enable-player=true
-windowsmgr.max_events_per_sec=500
 ro.media.dec.jpeg.memcap=20000000
 ro.opengles.version=131072
 debug.performance.tuning=1
@@ -14,12 +12,7 @@ video.accelerate.hw=1
 debug.sf.hw=1
 debug.composition.type=mdp
 debug.gr.numframebuffers=2
-debug.performance.tuning=1
 debug.composition.type=hdpi
-hs.systemserver=16m
-hs.app.process=16m
-hs.su=8m
-hs.app_process=16m 
 
 # WiFi
 wifi.interface=wlan0
@@ -43,6 +36,8 @@ ro.compcache.default=0
 dalvik.vm.dexopt-flags=v=n,o=v,m=y
 dalvik.vm.checkjni=false
 dalvik.vm.heapstartsize=5m
+ro.kernel.android.checkjni=0
+dalvik.vm.checkjni=0
 dalvik.vm.heapgrowthlimit=48m
 dalvik.vm.heapsize=128m
 
