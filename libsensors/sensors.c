@@ -15,6 +15,7 @@
  */
 
 #include <hardware/sensors.h>
+#include <stdio.h>
 
 #include "nusensors.h"
 
@@ -30,7 +31,7 @@
  * resolution by 4 bits.
  */
 
-static const struct sensor_t sSensorList[] = {
+static const struct sensor_t sTaosSensorList[] = {
         { "AK8962 3-axis Accelerometer",
                 "Asahi Kasei",
                 1, SENSORS_HANDLE_BASE+ID_A,
@@ -55,14 +56,42 @@ static const struct sensor_t sSensorList[] = {
                 SENSOR_TYPE_LIGHT, 27000.0f, 1.0f, 0.5f, 0, { } },
 };
 
+static const struct sensor_t sISLSensorList[] = {
+        { "AK8962 3-axis Accelerometer",
+                "Asahi Kasei",
+                1, SENSORS_HANDLE_BASE+ID_A,
+                SENSOR_TYPE_ACCELEROMETER, 4.0f*9.81f, (4.0f*9.81f)/256.0f, 0.2f, 0, { } },
+        { "AK8962 3-axis Magnetic field sensor",
+                "Asahi Kasei",
+                1, SENSORS_HANDLE_BASE+ID_M,
+                SENSOR_TYPE_MAGNETIC_FIELD, 2000.0f, 1.0f/16.0f, 6.8f, 0, { } },
+        { "AK8962 Orientation sensor",
+                "Asahi Kasei",
+                1, SENSORS_HANDLE_BASE+ID_O,
+                SENSOR_TYPE_ORIENTATION, 360.0f, 1.0f, 7.0f, 0, { } },
+        { "ISL29026 Proximity sensor",
+                "Intersil",
+                1, SENSORS_HANDLE_BASE+ID_P,
+                SENSOR_TYPE_PROXIMITY,
+                5.0f, 5.0f,
+                0.5f, 0, { } },
+        { "ISL29026 Light sensor",
+                "Intersil",
+                1, SENSORS_HANDLE_BASE+ID_L,
+                SENSOR_TYPE_LIGHT, 27000.0f, 1.0f, 0.5f, 0, { } },
+};
+
 static int open_sensors(const struct hw_module_t* module, const char* name,
         struct hw_device_t** device);
 
 static int sensors__get_sensors_list(struct sensors_module_t* module,
         struct sensor_t const** list)
 {
-    *list = sSensorList;
-    return ARRAY_SIZE(sSensorList);
+    if(fopen(TAOS_DEVICE_NAME,"rw"))
+        *list = sTaosSensorList;
+    else
+        *list = sISLSensorList;
+    return ARRAY_SIZE(sTaosSensorList);
 }
 
 static struct hw_module_methods_t sensors_module_methods = {
@@ -75,7 +104,7 @@ const struct sensors_module_t HAL_MODULE_INFO_SYM = {
         .version_major = 1,
         .version_minor = 0,
         .id = SENSORS_HARDWARE_MODULE_ID,
-        .name = "ZTE Skate Sensors Module",
+        .name = "ZTE Blade2 Sensors Module",
         .author = "Tom Giordano, Lalit Maganti",
         .methods = &sensors_module_methods,
     },

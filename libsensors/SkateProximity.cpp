@@ -24,16 +24,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "taos_common.h"
+#include "PS_ALS_common.h"
 
 #include <cutils/log.h>
 
-#include "TaosProximity.h"
+#include "Blade2Proximity.h"
 
 /*****************************************************************************/
 
-TaosProximity::TaosProximity()
-    : SensorBase(TAOS_DEVICE_NAME, "proximity"),
+Blade2Proximity::Blade2Proximity(char *dev)
+    : SensorBase(dev, "proximity"),
       mEnabled(0),
       mInputReader(4),
       mPendingMask(0),
@@ -48,8 +48,8 @@ TaosProximity::TaosProximity()
 
     if(!mInitialised) mInitialised = initialise();
 
-    if ((!ioctl(dev_fd, TAOS_IOCTL_PROX_ON))) {
-        mEnabled = ioctl(dev_fd, TAOS_IOCTL_PROX_GET_ENABLED);
+    if ((!ioctl(dev_fd, PS_ALS_IOCTL_PROX_ON))) {
+        mEnabled = ioctl(dev_fd,PS_ALS_IOCTL_PROX_GET_ENABLED);
         setInitialState();
     }
 
@@ -58,14 +58,14 @@ TaosProximity::TaosProximity()
     }
 }
 
-TaosProximity::~TaosProximity() {
+Blade2Proximity::~Blade2Proximity() {
     if (mEnabled) {
         enable(ID_P,0);
     }
 }
 
-int TaosProximity::initialise() {
-    struct taos_cfg cfg;
+int Blade2Proximity::initialise() {
+    struct PS_ALS_cfg cfg;
     FILE * cFile;
     int array[20];
     int i=0;
@@ -73,7 +73,7 @@ int TaosProximity::initialise() {
     char cNum[10] ;
     char cfg_data[100];
 
-    rv = ioctl(dev_fd, TAOS_IOCTL_CONFIG_GET, &cfg);
+    rv = ioctl(dev_fd, PS_ALS_IOCTL_CONFIG_GET, &cfg);
     if(rv) LOGE("Failed to read Taos defaults from kernel!!!");
 
     cFile = fopen(PROX_FILE,"r");
@@ -92,7 +92,7 @@ int TaosProximity::initialise() {
               &cfg.prox_gain
               ) == 9){
 
-            rv = ioctl(dev_fd, TAOS_IOCTL_CONFIG_SET, &cfg);
+            rv = ioctl(dev_fd, PS_ALS_IOCTL_CONFIG_SET, &cfg);
             if(rv) LOGE("Set proximity data failed!!!");
             else LOGD("Proximity calibration data successfully loaded from %s",PROX_FILE);
 
@@ -106,7 +106,7 @@ int TaosProximity::initialise() {
     return 1;
 }
 
-int TaosProximity::setInitialState() {
+int Blade2Proximity::setInitialState() {
     struct input_absinfo absinfo;
     if (!ioctl(data_fd, EVIOCGABS(EVENT_TYPE_PROXIMITY), &absinfo)) {
         mPendingEvents.distance = indexToValue(absinfo.value);
@@ -114,7 +114,7 @@ int TaosProximity::setInitialState() {
     return 0;
 }
 
-int TaosProximity::enable(int32_t handle, int en) {
+int Blade2Proximity::enable(int32_t handle, int en) {
     if (handle != ID_P)
         return -EINVAL;
 
@@ -128,15 +128,15 @@ int TaosProximity::enable(int32_t handle, int en) {
         int cmd;
 
         if (newState) {
-            cmd = TAOS_IOCTL_PROX_ON;
+            cmd =PS_ALS_IOCTL_PROX_ON;
             LOGD_IF(DEBUG,"PROX ON");
         } else {
-            cmd = TAOS_IOCTL_PROX_OFF;
+            cmd = PS_ALS_IOCTL_PROX_OFF;
             LOGD_IF(DEBUG,"PROX OFF");
         }
         err = ioctl(dev_fd, cmd);
         err = err<0 ? -errno : 0;
-        LOGE_IF(err, "TAOS_IOCTL_XXX failed (%s)", strerror(-err));
+        LOGE_IF(err, "PS_ALS_IOCTL_XXX failed (%s)", strerror(-err));
         if (!err) {
             if (en) {
                 setInitialState();
@@ -153,11 +153,11 @@ int TaosProximity::enable(int32_t handle, int en) {
     return err;
 }
 
-bool TaosProximity::hasPendingEvents() const {
+bool Blade2Proximity::hasPendingEvents() const {
      return mPendingMask;
 }
 
-int TaosProximity::readEvents(sensors_event_t* data, int count)
+int Blade2Proximity::readEvents(sensors_event_t* data, int count)
 {
     if (count < 1)
         return -EINVAL;
@@ -185,14 +185,14 @@ int TaosProximity::readEvents(sensors_event_t* data, int count)
                 numEventReceived++;
             }
         } else {
-            LOGE("TaosSensor: unknown event (type=%d, code=%d)",type, event->code);
+            LOGE("Blade2Sensor: unknown event (type=%d, code=%d)",type, event->code);
         }
         mInputReader.next();
     }
     return numEventReceived;
 }
 
-float TaosProximity::indexToValue(size_t index) const
+float Blade2Proximity::indexToValue(size_t index) const
 {
     return index;
 }
