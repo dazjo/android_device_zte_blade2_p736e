@@ -31,7 +31,6 @@ lib/libpbmlib.so
 lib/libdss.so
 lib/libauth.so
 
-lib/libcamera.so
 lib/liboemcamera.so
 lib/libmmjpeg.so
 lib/libmmipl.so
