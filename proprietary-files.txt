@@ -5,6 +5,7 @@ bin/hciattach
 bin/qmuxd
 
 etc/init.qcom.bt.sh
+bin/BCM4330B1_0243.0000_ZTE_P736V.hcd
 etc/BCM4330B1_002.001.032.0518.0520.hcd
 
 lib/libgsl.so
