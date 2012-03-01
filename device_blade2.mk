@@ -21,14 +21,9 @@ PRODUCT_NAME := zte_blade2
 PRODUCT_DEVICE := blade2
 PRODUCT_MODEL := ZTE Blade2
 
-# Apps
-PRODUCT_PACKAGES += \
-    Blade2Parts
-
-# Other
+# Libs
 PRODUCT_PACKAGES += \
     lights.blade2 \
-    gps.blade2 \
     sensors.blade2
 
 # Install the features available on this device.
@@ -56,12 +51,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/zte/blade2/prebuilt/lib/hw/gralloc.blade2.so:system/lib/hw/gralloc.blade2.so \
     device/zte/blade2/prebuilt/lib/hw/copybit.blade2.so:system/lib/hw/copybit.blade2.so
-
-# GPS
-PRODUCT_COPY_FILES += \
-    device/zte/blade2/prebuilt/lib/hw/gps.default.so:system/lib/hw/gps.default.so \
-    device/zte/blade2/prebuilt/lib/libcommondefs.so:system/lib/libcommondefs.so \
-    device/zte/blade2/prebuilt/lib/libloc_api-rpc-qc.so:system/lib/libloc_api-rpc-qc.so
 
 # Audio
 PRODUCT_COPY_FILES += \
