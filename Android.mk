@@ -13,7 +13,11 @@
 # limitations under the License.
 
 ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),blade2)
-include $(call all-named-subdir-makefiles, libsensors Blade2Parts  liblights libomxcore libopencorehw libstagefrighthw)
+LOCAL_PATH := $(call my-dir)
+subdir_makefiles := \
+        device/zte/common/ZTEParts/Android.mk
+#include $(subdir_makefiles)
+include $(call all-makefiles-under,device/zte/blade2)
 endif
 
 
