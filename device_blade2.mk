@@ -24,7 +24,10 @@ PRODUCT_MODEL := ZTE Blade2
 # Libs
 PRODUCT_PACKAGES += \
     lights.blade2 \
-    sensors.blade2
+    sensors.blade2 \
+    camera.blade2 \
+    audio.primary.blade2 \
+    audio_policy.blade2
 
 # Install the features available on this device.
 PRODUCT_COPY_FILES += \
@@ -42,7 +45,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/zte/blade2/prebuilt/usr/keylayout/blade2_keypad.kl:system/usr/keylayout/blade2_keypad.kl \
     device/zte/blade2/prebuilt/usr/idc/atmel-touchscreen.idc:system/usr/idc/atmel-touchscreen.idc \
-    device/zte/blade2/prebuilt/usr/idc/synaptics-rmi4-ts.idc:system/usr/idc/synaptics-rmi4-ts.idc \
     device/zte/blade2/prebuilt/usr/keylayout/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
     device/zte/blade2/prebuilt/usr/keylayout/Generic.kl:system/usr/keylayout/Generic.kl \
     device/zte/blade2/prebuilt/usr/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl
@@ -52,13 +54,9 @@ PRODUCT_COPY_FILES += \
     device/zte/blade2/prebuilt/lib/hw/gralloc.blade2.so:system/lib/hw/gralloc.blade2.so \
     device/zte/blade2/prebuilt/lib/hw/copybit.blade2.so:system/lib/hw/copybit.blade2.so
 
-# Audio
-PRODUCT_COPY_FILES += \
-    device/zte/blade2/prebuilt/lib/hw/audio.primary.blade2.so:system/lib/hw/audio.primary.blade2.so
-
 # Kernel Modules
 PRODUCT_COPY_FILES += \
-    device/zte/blade2/prebuilt/lib/modules/dhd.ko:system/lib/dhd.ko
+    device/zte/blade2/prebuilt/lib/modules/dhd.ko:system/lib/modules/dhd.ko
 
 # WiFi
 PRODUCT_COPY_FILES += \
