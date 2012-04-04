@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+ifeq ($(PRODUCT_DEVICE),blade2)
 
 LOCAL_PATH := $(call my-dir)
 
@@ -21,7 +22,7 @@ ifneq ($(TARGET_SIMULATOR),true)
 # hw/<SENSORS_HARDWARE_MODULE_ID>.<ro.product.board>.so
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := sensors.blade2
+LOCAL_MODULE := sensors.zte
 
 LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
 
@@ -54,3 +55,4 @@ LOCAL_SHARED_LIBRARIES := liblog
 include $(BUILD_EXECUTABLE)
 
 endif # !TARGET_SIMULATOR
+endif
