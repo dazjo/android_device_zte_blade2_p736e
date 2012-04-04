@@ -19,13 +19,15 @@ $(call inherit-product, device/zte/common/device_zte.mk)
 # Discard inherited values and use our own instead.
 PRODUCT_NAME := zte_blade2
 PRODUCT_DEVICE := blade2
-PRODUCT_MODEL := ZTE Blade2
+PRODUCT_MODEL := Crescent
 
 # Libs
 PRODUCT_PACKAGES += \
     lights.blade2 \
     sensors.blade2 \
     camera.blade2 \
+    copybit.blade2 \
+    gralloc.blade2
     audio.primary.blade2 \
     audio_policy.blade2
 
@@ -48,11 +50,15 @@ PRODUCT_COPY_FILES += \
     device/zte/blade2/prebuilt/usr/keylayout/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
     device/zte/blade2/prebuilt/usr/keylayout/Generic.kl:system/usr/keylayout/Generic.kl \
     device/zte/blade2/prebuilt/usr/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl
-
-# EGL and gralloc module
+	
+# RIL libs (stolen from Fuzzra as mine don't work ;-;)
 PRODUCT_COPY_FILES += \
-    device/zte/blade2/prebuilt/lib/hw/gralloc.blade2.so:system/lib/hw/gralloc.blade2.so \
-    device/zte/blade2/prebuilt/lib/hw/copybit.blade2.so:system/lib/hw/copybit.blade2.so
+    device/zte/blade2/prebuilt/lib/libril-qc-1.so:system/lib/libril-qc-1.so \
+    device/zte/blade2/prebuilt/lib/libril-qcril-hook-oem.so:system/lib/libril-qcril-hook-oem.so \
+    device/zte/blade2/prebuilt/lib/libSimCardAuth.so:system/lib/libSimCardAuth.so \
+    device/zte/blade2/prebuilt/lib/libril-qc-1.so:obj/lib/libril-qc-1.so \
+    device/zte/blade2/prebuilt/lib/libril-qcril-hook-oem.so:obj/lib/libril-qcril-hook-oem.so \
+    device/zte/blade2/prebuilt/lib/libSimCardAuth.so:obj/lib/libSimCardAuth.so
 
 # Kernel Modules
 PRODUCT_COPY_FILES += \
@@ -69,3 +75,4 @@ PRODUCT_COPY_FILES += \
     device/zte/blade2/prebuilt/etc/init.bt.sh:system/etc/init.bt.sh \
     device/zte/blade2/prebuilt/etc/init.qcom.fm.sh:system/etc/init.qcom.fm.sh \
     device/zte/blade2/prebuilt/etc/init.wlanprop.sh:system/etc/init.wlanprop.sh
+
