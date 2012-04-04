@@ -27,7 +27,7 @@ PRODUCT_PACKAGES += \
     sensors.blade2 \
     camera.blade2 \
     copybit.blade2 \
-    gralloc.blade2
+    gralloc.blade2 \
     audio.primary.blade2 \
     audio_policy.blade2
 
