@@ -45,7 +45,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/zte/blade2/prebuilt/lib/modules/dhd.ko:system/lib/modules/dhd.ko
 
-# WiFi
+# Wi-Fi
 PRODUCT_COPY_FILES += \
     device/zte/blade2/prebuilt/etc/fw_4330b1.bin:system/etc/fw_4330b1.bin \
     device/zte/blade2/prebuilt/etc/fw_4330b2.bin:system/etc/fw_4330b2.bin \
