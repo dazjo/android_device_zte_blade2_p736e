@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),blade2)
+ifeq ($(PRODUCT_RELEASE_NAME),blade2)
 LOCAL_PATH := $(call my-dir)
 subdir_makefiles := \
         device/zte/common/ZTEParts/Android.mk
