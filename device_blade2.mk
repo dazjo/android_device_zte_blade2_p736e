@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# proprietary side of the device
+# Proprietary and common side of the device.
 $(call inherit-product-if-exists, vendor/zte/blade2/blade2-vendor.mk)
 $(call inherit-product, device/zte/common/device_zte.mk)
 
@@ -40,15 +40,6 @@ PRODUCT_COPY_FILES += \
     device/zte/blade2/prebuilt/usr/keylayout/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
     device/zte/blade2/prebuilt/usr/keylayout/Generic.kl:system/usr/keylayout/Generic.kl \
     device/zte/blade2/prebuilt/usr/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl
-	
-# RIL libs (stolen from Fuzzra as mine don't work ;-;)
-PRODUCT_COPY_FILES += \
-    device/zte/blade2/prebuilt/lib/libril-qc-1.so:system/lib/libril-qc-1.so \
-    device/zte/blade2/prebuilt/lib/libril-qcril-hook-oem.so:system/lib/libril-qcril-hook-oem.so \
-    device/zte/blade2/prebuilt/lib/libSimCardAuth.so:system/lib/libSimCardAuth.so \
-    device/zte/blade2/prebuilt/lib/libril-qc-1.so:obj/lib/libril-qc-1.so \
-    device/zte/blade2/prebuilt/lib/libril-qcril-hook-oem.so:obj/lib/libril-qcril-hook-oem.so \
-    device/zte/blade2/prebuilt/lib/libSimCardAuth.so:obj/lib/libSimCardAuth.so
 
 # Kernel Modules
 PRODUCT_COPY_FILES += \
