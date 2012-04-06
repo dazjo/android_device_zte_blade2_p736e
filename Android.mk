@@ -12,11 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-ifeq ($(PRODUCT_RELEASE_NAME),blade2)
-LOCAL_PATH := $(call my-dir)
-subdir_makefiles := \
-        device/zte/common/ZTEParts/Android.mk
-#include $(subdir_makefiles)
+ifeq ($(PRODUCT_DEVICE),blade2)
+include $(call all-makefiles-under,device/zte/common)
 include $(call all-makefiles-under,device/zte/blade2)
 endif
 

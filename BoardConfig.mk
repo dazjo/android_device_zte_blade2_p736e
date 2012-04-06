@@ -14,6 +14,8 @@
 
 -include device/zte/common/BoardConfigCommon.mk
 
++TARGET_BOOTLOADER_BOARD_NAME := zte
+
 # Kernel
 TARGET_PREBUILT_KERNEL := device/zte/blade2/prebuilt/kernel
 BOARD_KERNEL_CMDLINE := androidboot.hardware=blade2 console=null
