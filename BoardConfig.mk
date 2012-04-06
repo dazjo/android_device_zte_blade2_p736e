@@ -14,7 +14,7 @@
 
 -include device/zte/common/BoardConfigCommon.mk
 
-+TARGET_BOOTLOADER_BOARD_NAME := zte
+TARGET_BOOTLOADER_BOARD_NAME := zte
 
 # Kernel
 TARGET_PREBUILT_KERNEL := device/zte/blade2/prebuilt/kernel
