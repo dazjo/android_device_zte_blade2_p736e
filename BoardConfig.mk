@@ -12,13 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
--include device/zte/common/BoardConfigCommon.mk
-
-TARGET_BOOTLOADER_BOARD_NAME := zte
+include device/zte/common/BoardConfigCommon.mk
 
 # Kernel
-TARGET_PREBUILT_KERNEL := device/zte/blade2/prebuilt/kernel
 BOARD_KERNEL_CMDLINE := androidboot.hardware=blade2 console=null
+TARGET_BOOTLOADER_BOARD_NAME := blade2
 
 # Wi-Fi
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
