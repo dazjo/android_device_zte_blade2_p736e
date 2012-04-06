@@ -12,9 +12,5 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-ifeq ($(PRODUCT_DEVICE),blade2)
 include $(call all-makefiles-under,device/zte/common)
 include $(call all-makefiles-under,device/zte/blade2)
-endif
-
-
