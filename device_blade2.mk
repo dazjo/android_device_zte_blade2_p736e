@@ -20,7 +20,6 @@ $(call inherit-product, device/zte/common/device_zte.mk)
 PRODUCT_NAME := zte_blade2
 PRODUCT_DEVICE := blade2
 PRODUCT_MODEL := Crescent
-PRODUCT_BRAND := ZTE
 
 # Install the features available on this device.
 PRODUCT_COPY_FILES += \
