@@ -21,6 +21,14 @@ PRODUCT_NAME := zte_blade2
 PRODUCT_DEVICE := blade2
 PRODUCT_MODEL := Crescent
 
+# Libs
+PRODUCT_PACKAGES += \
+    lights.blade2 \
+    sensors.blade2 \
+    camera.blade2 \
+    audio.primary.blade2 \
+    audio_policy.blade2
+
 # Install the features available on this device.
 PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
