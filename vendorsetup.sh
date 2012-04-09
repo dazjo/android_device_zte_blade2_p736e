@@ -21,3 +21,6 @@
 # function: add_lunch_combo generic-eng
 
 add_lunch_combo cm_blade2-eng
+add_lunch_combo cm_blade2-userdebug
+add_lunch_combo zte_blade2-eng
+add_lunch_combo zte_blade2-userdebug
