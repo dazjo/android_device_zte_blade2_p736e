@@ -62,6 +62,13 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/zte/blade2/prebuilt/lib/modules/dhd.ko:system/lib/modules/dhd.ko
 
+# Not proud of this at all.
+PRODUCT_COPY_FILES += \
+    device/zte/blade2/prebuilt/lib/libhardware.so:system/lib/libhardware.so \
+    device/zte/blade2/prebuilt/lib/libhardware_legacy.so:system/lib/libhardware_legacy.so \
+    device/zte/blade2/prebuilt/lib/libhardware.so:obj/lib/libhardware.so \
+    device/zte/blade2/prebuilt/lib/libhardware_legacy.so:obj/lib/libhardware_legacy.so
+
 # Wi-Fi
 PRODUCT_COPY_FILES += \
     device/zte/blade2/prebuilt/etc/fw_4330b1.bin:system/etc/fw_4330b1.bin \
