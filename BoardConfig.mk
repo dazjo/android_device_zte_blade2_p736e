@@ -14,13 +14,17 @@
 
 include device/zte/common/BoardConfigCommon.mk
 
+# Bluetooth
+BOARD_HAVE_BLUETOOTH_BCM := true
+
 # Kernel
 BOARD_KERNEL_CMDLINE := androidboot.hardware=blade2 console=null
 TARGET_BOOTLOADER_BOARD_NAME := blade2
 
 # Wi-Fi
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
-WPA_SUPPLICANT_VERSION := VER_0_6_X
+WPA_SUPPLICANT_VERSION := VER_0_8_X
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_wext
 BOARD_WLAN_DEVICE := bcm4330
 WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/dhd.ko"
 WIFI_DRIVER_FW_PATH_AP := "/system/etc/fw_4330b1.bin"
