@@ -23,7 +23,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 PRODUCT_NAME := zte_blade2
 PRODUCT_DEVICE := blade2
 PRODUCT_BRAND := ZTE
-PRODUCT_MODEL := ZTE Crescent
+PRODUCT_MODEL := Crescent
 
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
