@@ -14,7 +14,7 @@ service dhcp-service /system/bin/netcfg wlan0 dhcp
 
 on property:init.svc.wpa_supplicant=stopped
     class main
-	stop dhcpcd_wlan0
+    stop dhcpcd_wlan0
 
 on property:dev.bootcomplete=1
     stop dhcp-service
