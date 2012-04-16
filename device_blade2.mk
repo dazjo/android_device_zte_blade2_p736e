@@ -30,6 +30,10 @@ $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 PRODUCT_AAPT_CONFIG := normal hdpi
 
+# TMO is P736EB01, OUK is P736VB01 - could add baseband version to the kernel patcher for TMO?
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.build.baseband_version=P736VB01
+
 # Libs
 PRODUCT_PACKAGES += \
     lights.blade2 \
