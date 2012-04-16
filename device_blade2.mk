@@ -60,7 +60,8 @@ PRODUCT_COPY_FILES += \
     device/zte/blade2/prebuilt/usr/idc/atmel-touchscreen.idc:system/usr/idc/atmel-touchscreen.idc \
     device/zte/blade2/prebuilt/usr/keylayout/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
     device/zte/blade2/prebuilt/usr/keylayout/Generic.kl:system/usr/keylayout/Generic.kl \
-    device/zte/blade2/prebuilt/usr/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl
+    device/zte/blade2/prebuilt/usr/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
+    device/zte/blade2/prebuilt/usr/keychars/blade2_keypad.kcm.bin:system/usr/keychars/blade2_keypad.kcm.bin
 
 # Kernel Modules
 PRODUCT_COPY_FILES += \
