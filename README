@@ -1,0 +1,7 @@
+Work in progress CyanogenMod 9 device configuration for the ZTE Crescent / Blade S, marketed as Orange San Francisco II and T-Mobile Vivacity.
+This is heavily dependant on android_device_zte_common which can be found at: https://github.com/ICSFusionX/android_device_zte_common
+
+If you're building, you will want to clone both of these under "blade2" and "common" respectively under device/zte/.
+
+All credit for the original work go to Fuzzra - I took this and kept it up-to-date.
+Wi-Fi appears to be taken from flibblesan's CyanogenMod 7 configuration though I can't say for sure (I wasn't here then).
