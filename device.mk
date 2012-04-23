@@ -25,10 +25,6 @@ $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 
-# TMO is P736EB01, OUK is P736VB01 - could add baseband version to the kernel patcher for TMO?
-PRODUCT_PROPERTY_OVERRIDES += \
-        ro.build.baseband_version=P736VB01
-
 PRODUCT_PACKAGES := \
         lights.blade2 \
         sensors.blade2 \
@@ -114,7 +110,7 @@ PRODUCT_PACKAGES += \
 # for bugmailer
 ifneq ($(TARGET_BUILD_VARIANT),user)
          PRODUCT_PACKAGES += send_bug
-PRODUCT_COPY_FILES += \
+         PRODUCT_COPY_FILES += \
                  system/extras/bugmailer/bugmailer.sh:system/bin/bugmailer.sh \
                  system/extras/bugmailer/send_bug:system/bin/send_bug
 endif
