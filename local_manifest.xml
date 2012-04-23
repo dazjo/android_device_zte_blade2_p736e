@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <remote name="tilal6991"
+            fetch="git://github.com/tilal6991/"
+     />
+
+    <project path="kernel/zte/blade2"
+        name="kernel_zte_blade"
+        revision="ics-tilal"
+        remote="tilal6991"
+     />
+</manifest>
