@@ -73,15 +73,15 @@ PRODUCT_COPY_FILES += \
 
 # Wi-Fi
 PRODUCT_COPY_FILES += \
-        device/zte/blade2/prebuilt/etc/fw_4330b1.bin:system/etc/fw_4330b1.bin \
-        device/zte/blade2/prebuilt/etc/fw_4330b2.bin:system/etc/fw_4330b2.bin \
-        device/zte/blade2/prebuilt/etc/fw_4330_b1_apsta.bin:system/etc/fw_4330_b1_apsta.bin \
-        device/zte/blade2/prebuilt/etc/fw_4330_b2_apsta.bin:system/etc/fw_4330_b2_apsta.bin \
-        device/zte/blade2/prebuilt/etc/nv_4330b1.txt:system/etc/nv_4330b1.txt \
-        device/zte/blade2/prebuilt/etc/nv_4330b1.txt:system/etc/nv_4330b2.txt \
-        device/zte/blade2/prebuilt/etc/init.bt.sh:system/etc/init.bt.sh \
-        device/zte/blade2/prebuilt/etc/init.qcom.fm.sh:system/etc/init.qcom.fm.sh \
-        device/zte/blade2/prebuilt/etc/init.wlanprop.sh:system/etc/init.wlanprop.sh
+        device/zte/blade2/firmware/fw_4330b1.bin:system/etc/fw_4330b1.bin \
+        device/zte/blade2/firmware/fw_4330b2.bin:system/etc/fw_4330b2.bin \
+        device/zte/blade2/firmware/fw_4330_b1_apsta.bin:system/etc/fw_4330_b1_apsta.bin \
+        device/zte/blade2/firmware/fw_4330_b2_apsta.bin:system/etc/fw_4330_b2_apsta.bin \
+        device/zte/blade2/firmware/nv_4330b1.txt:system/etc/nv_4330b1.txt \
+        device/zte/blade2/firmware/nv_4330b1.txt:system/etc/nv_4330b2.txt \
+        device/zte/blade2/init.bt.sh:system/etc/init.bt.sh \
+        device/zte/blade2/init.qcom.fm.sh:system/etc/init.qcom.fm.sh \
+        device/zte/blade2/init.wlanprop.sh:system/etc/init.wlanprop.sh
 
 # Live Wallpapers
 PRODUCT_PACKAGES += \
