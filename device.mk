@@ -66,6 +66,27 @@ PRODUCT_COPY_FILES := \
         device/zte/blade2/prebuilt/start_usb0.sh:system/etc/start_usb0.sh \
         device/zte/blade2/gps.conf:system/etc/gps.conf
 
+# Graphics
+PRODUCT_COPY_FILES := \
+        device/zte/blade2/prebuilt/libOpenVG.so:system/lib/libOpenVG.so \
+        device/zte/blade2/prebuilt/libgsl.so:system/lib/libgsl.so \
+        device/zte/blade2/prebuilt/libC2D2.so:system/lib/libC2D2.so \
+        device/zte/blade2/prebuilt/libsc-a2xx.so:system/lib/libsc-a2xx.so \
+        device/zte/blade2/prebuilt/egl/eglsubAndroid.so:system/lib/egl/eglsubAndroid.so \
+        device/zte/blade2/prebuilt/egl/libEGL_adreno200.so:system/lib/egl/libEGL_adreno200.so \
+        device/zte/blade2/prebuilt/egl/libGLESv1_CM_adreno200.so:system/lib/egl/libGLESv1_CM_adreno200.so \
+        device/zte/blade2/prebuilt/egl/libGLESv2_adreno200.so:system/lib/egl/libGLESv2_adreno200.so \
+        device/zte/blade2/prebuilt/egl/libq3dtools_adreno200.so:system/lib/egl/libq3dtools_adreno200.so \
+        device/zte/blade2/firmware/a225p5_pm4.fw:system/etc/firmware/a225p5_pm4.fw \
+        device/zte/blade2/firmware/a225_pfp.fw:system/etc/firmware/a225_pfp.fw \
+        device/zte/blade2/firmware/a225_pm4.fw:system/etc/firmware/a225_pm4.fw \
+        device/zte/blade2/firmware/a300_pfp.fw:system/etc/firmware/a300_pfp.fw \
+        device/zte/blade2/firmware/a300_pm4.fw:system/etc/firmware/a300_pm4.fw \
+        device/zte/blade2/firmware/leia_pfp_470.fw:system/etc/firmware/leia_pfp_470.fw \
+        device/zte/blade2/firmware/leia_pm4_470.fw:system/etc/firmware/leia_pm4_470.fw \
+        device/zte/blade2/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
+        device/zte/blade2/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw
+
 # Bluetooth configuration files
 PRODUCT_COPY_FILES += \
         device/zte/blade2/init.bt.sh:system/etc/init.bt.sh \
