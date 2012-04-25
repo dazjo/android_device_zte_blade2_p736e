@@ -53,7 +53,7 @@ PRODUCT_COPY_FILES := \
         device/zte/blade2/init.blade2.rc:root/init.blade2.rc \
         device/zte/blade2/init.blade2.usb.rc:root/init.blade2.usb.rc \
         device/zte/blade2/ueventd.blade2.rc:root/ueventd.blade2.rc \
-		device/zte/blade2/usbconfig:root/sbin/usbconfig \
+        device/zte/blade2/usbconfig:root/sbin/usbconfig \
         device/zte/blade2/vold.fstab:system/etc/vold.fstab \
         device/zte/blade2/prebuilt/blade2_keypad.kl:system/usr/keylayout/blade2_keypad.kl \
         device/zte/blade2/prebuilt/atmel-touchscreen.idc:system/usr/idc/atmel-touchscreen.idc \
@@ -94,6 +94,7 @@ PRODUCT_COPY_FILES += \
 
 # Wi-Fi
 PRODUCT_COPY_FILES += \
+        device/zte/blade2/prebuilt/dhd.ko:system/lib/modules/dhd.ko \
         device/zte/blade2/firmware/fw_4330b1.bin:system/etc/fw_4330b1.bin \
         device/zte/blade2/firmware/fw_4330b2.bin:system/etc/fw_4330b2.bin \
         device/zte/blade2/firmware/fw_4330_b1_apsta.bin:system/etc/fw_4330_b1_apsta.bin \
