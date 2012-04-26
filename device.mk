@@ -57,6 +57,8 @@ PRODUCT_COPY_FILES := \
         device/zte/blade2/vold.fstab:system/etc/vold.fstab \
         device/zte/blade2/prebuilt/blade2_keypad.kl:system/usr/keylayout/blade2_keypad.kl \
         device/zte/blade2/prebuilt/atmel-touchscreen.idc:system/usr/idc/atmel-touchscreen.idc \
+        device/zte/blade2/prebuilt/synaptics-rmi4-ts.idc:system/usr/idc/synaptics-rmi4-ts.idc \
+        device/zte/blade2/prebuilt/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc \
         device/zte/blade2/prebuilt/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
         device/zte/blade2/prebuilt/Generic.kl:system/usr/keylayout/Generic.kl \
         device/zte/blade2/prebuilt/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
