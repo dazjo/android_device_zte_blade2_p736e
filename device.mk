@@ -70,7 +70,6 @@ PRODUCT_COPY_FILES := \
 
 # Bluetooth configuration files
 PRODUCT_COPY_FILES += \
-        device/zte/blade2/init.bt.sh:system/etc/init.bt.sh \
         system/bluetooth/data/main.le.conf:system/etc/bluetooth/main.conf
 
 # Wi-Fi
