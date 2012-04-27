@@ -127,5 +127,4 @@ ifneq ($(TARGET_BUILD_VARIANT),user)
 endif
 
 $(call inherit-product, frameworks/base/build/phone-hdpi-512-dalvik-heap.mk)
-#$(call inherit-product, frameworks/base/build/phone-hdpi-dalvik-heap.mk)
 $(call inherit-product-if-exists, vendor/zte/blade2/blade2-vendor.mk)
