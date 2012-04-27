@@ -84,6 +84,16 @@ PRODUCT_COPY_FILES += \
         device/zte/blade2/init.qcom.fm.sh:system/etc/init.qcom.fm.sh \
         device/zte/blade2/init.wlanprop.sh:system/etc/init.wlanprop.sh
 
+# Graphics
+PRODUCT_COPY_FILES += \
+    device/zte/blade2/firmware/a225_pfp.fw:system/etc/firmware/a225_pfp.fw \
+    device/zte/blade2/firmware/a225_pm4.fw:system/etc/firmware/a225_pm4.fw \
+    device/zte/blade2/firmware/a225p5_pm4.fw:system/etc/firmware/a225p5_pm4.fw \
+    device/zte/blade2/firmware/a300_pfp.fw:system/etc/firmware/a300_pfp.fw \
+    device/zte/blade2/firmware/a300_pm4.fw:system/etc/firmware/a300_pm4.fw \
+    device/zte/blade2/firmware/leia_pfp_470.fw:system/etc/firmware/leia_pfp_470.fw \
+    device/zte/blade2/firmware/leia_pm4_470.fw:system/etc/firmware/leia_pm4_470.fw \
+
 # Live Wallpapers
 PRODUCT_PACKAGES += \
         LiveWallpapers \

@@ -5,48 +5,24 @@ on early-init
     mkdir /mnt/sdcard 0000 system system
 # For backwards compatibility
     symlink /mnt/sdcard /sdcard
-    chmod 7777 /data/dalvik-cache
-    chown system system /data/dalvik-cache
 
 service dhcp-service /system/bin/netcfg wlan0 dhcp
     class main
     oneshot
 
-on property:init.svc.wpa_supplicant=stopped
-    class main
-    stop dhcpcd_wlan0
-
 on property:dev.bootcomplete=1
     stop dhcp-service
     start dhcp-service
 
-on post-fs-data
-    mkdir /data/misc/wifi 0770 wifi wifi
-    mkdir /data/misc/wifi/sockets 0770 wifi wifi
-    mkdir /data/misc/dhcp 0770 dhcp dhcp
-    chown dhcp dhcp /data/misc/dhcp
-
 on boot
-    mkdir /data/misc 01771 system misc
-    mkdir /data/misc/wifi 0770 system wifi
-    mkdir /data/misc/wifi/sockets
-    chown system wifi /data/misc/wifi/sockets
-    chmod 770 /data/misc/wifi/sockets
-    mkdir /data/misc/dhcp 0770 dhcp dhcp
-    chown dhcp dhcp /data/misc/dhcp
-    mkdir /data/system 0775 system system
-# MIUI only
-    mkdir /data/system/theme 7777 system system
 
-    mkdir /data/local
-    chmod 0777 /data/local
-    chown radio shell /data/local
-    mkdir /data/local/tmp
-    chmod 0777 /data/local/tmp
-    chown radio shell /data/local/tmp
+# cpufreq configurations
+    write /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate 500000
+    write /sys/devices/system/cpu/cpufreq/ondemand/up_threshold 90
+    write /sys/devices/system/cpu/cpufreq/ondemand/down_threshold 30
 
-# Setup android gadget
-   write /sys/module/g_android/parameters/serial_number CM9-Blade2
+# Setup charging
+    chown system system /sys/module/msm_battery/parameters/usb_chg_enable
 
 # Setup bluetooth
     mkdir /data/misc/bluetooth 0770 bluetooth bluetooth
@@ -63,29 +39,41 @@ on boot
     chmod 0660 /proc/bluetooth/sleep/proto
     chmod 0660 /proc/bcm/sleep/proto
     chown bluetooth bluetooth /dev/ttyHS0
-    chmod 0660 /dev/ttyHS0
+    chmod 0666 /dev/ttyHS0
     chown bluetooth bluetooth /sys/devices/platform/msm_serial_hs.0/clock
     chmod 0660 /sys/devices/platform/msm_serial_hs.0/clock
-    chown system system /sys/devices/platform/msm_hsusb_periphera/composition
-
-# Permission for ril
-   chown radio system /dev/pm_monitor
-   chmod 0770 /ddev/pm_monitor
 
 # Sensors
     chmod 0777 /dev/akm8962_aot
     chmod 0777 /dev/akm8962_dev
 
-# Create the directories used by the Wireless subsystem
-    mkdir /data/wpstiles/ 0777 shell
-    mkdir /etc/wiper 0775 location qcom_oncrpc
-    mkdir /data/misc/prox 0777 radio radio
+# Setup android gadget
+   write /sys/module/g_android/parameters/serial_number CM9-Blade2
+   write /sys/module/g_android/parameters/product_id 0x1351
+
+#create WIFI filesystem structure
+    mkdir /data/misc 01771 system misc
+    mkdir /data/misc/wifi 0770 system wifi
+    mkdir /data/misc/wifi/sockets
+    chown system wifi /data/misc/wifi/sockets
+    chmod 770 /data/misc/wifi/sockets
+    mkdir /data/misc/dhcp 0770 dhcp dhcp
+    chown dhcp dhcp /data/misc/dhcp
+    mkdir /data/system 0775 system system
+
+   mkdir /data/local
+   chmod 0777 /data/local
+   chown radio shell /data/local
+   mkdir /data/local/tmp
+   chmod 0777 /data/local/tmp
+   chown radio shell /data/local/tmp
 
 # For qmuxd socket
     mkdir /data/radio 0770 radio radio
     chown radio radio 0770 /data/radio
 
     chown system system /sys/class/leds/green/blink
+    chown system system /sys/class/leds/green/brightness
     chown system system /sys/class/leds/green/grpfreq
     chown system system /sys/class/leds/green/grppwm
     chown system system /sys/class/leds/red/blink
@@ -97,22 +85,48 @@ on boot
     chown system system /sys/class/leds/amber/grpfreq
     chown system system /sys/class/leds/amber/grppwm
 
-service hciattach /system/bin/hciattach -n -s 115200 /dev/ttyHS0 bcm2035
+# SD card polling
+    chown system system /sys/module/g_android/parameters/product_id
+    chown system system /sys/devices/platform/msm_sdcc.1/polling
+    chown system system /sys/devices/platform/msm_sdcc.2/polling
+    chown system system /sys/devices/platform/msm_sdcc.3/polling
+    chown system system /sys/devices/platform/msm_sdcc.4/polling
+    chown system system /sys/devices/platform/android_usb/composition
+    chown system system /sys/devices/platform/android_usb/remote_wakeup
+
+
+# Enable MASS storage on SDCARD
+    write /sys/devices/platform/mass_storage/lun0/file /dev/block/mmcblk0p1
+    write /sys/bus/platform/drivers/msm_sdcc/msm_sdcc.1/polling 1
+
+service qmuxd /system/bin/qmuxd 
     class main
+
+on property:init.svc.bluetoothd=running
+    write /sys/devices/virtual/bluetooth/hci0/idle_timeout 7000
+    start abtfilt
+
+on property:init.svc.bluetoothd=stopped
+    stop abtfilt
+
+service hci_qcomm_init /system/bin/log -t qcom-bluetooth -p i "hci_qcomm_init service requested"
     user bluetooth
+    group bluetooth net_bt_admin
+    disabled
+    oneshot
+
+service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
+    class main
+    user root
     group qcom_oncrpc bluetooth net_bt_admin system
     disabled
     oneshot
 
-service qmuxd /system/bin/qmuxd
-    class main
-
-service usbconfig /sbin/usbconfig
-    class main
-    oneshot
+on property:init.svc.wpa_supplicant=stopped
+    stop dhcpcd_wlan0
 
 # WPA SETTINGS
-service wpa_supplicant /system/bin/logwrapper /system/bin/wpa_supplicant -Dwext -iwlan0 -W -c/data/misc/wifi/wpa_supplicant.conf
+service wpa_supplicant /system/bin/wpa_supplicant -Dwext -iwlan0 -W -c/data/misc/wifi/wpa_supplicant.conf
     class main
     group wifi inet
     socket wpa_wlan0 dgram 660 wifi wifi
@@ -124,7 +138,17 @@ service dhcpcd_wlan0 /system/bin/dhcpcd -BKL
     disabled
     oneshot
 
+service start_usb0 /system/bin/logwrapper /system/bin/sh /etc/start_usb0.sh
+    class main
+    disabled
+    oneshot
+
 service iprenew_wlan0 /system/bin/dhcpcd -n
+    class main
+    disabled
+    oneshot
+
+service abtfilt /system/bin/abtfilt -c -d -z -n
     class main
     disabled
     oneshot
@@ -132,11 +156,4 @@ service iprenew_wlan0 /system/bin/dhcpcd -n
 service akmd /system/bin/akmd8962
     class main
     user root
-    oneshot
-
-service btld /system/bin/btld -lpm 1 -hb 3000000
-    class main
-    user root
-    group bluetooth net_bt_admin
-    disabled
     oneshot
