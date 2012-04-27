@@ -1,3 +1,5 @@
+TARGET_BOOTANIMATION_NAME := vertical-480x800
+
 $(call inherit-product, device/zte/blade2/blade2.mk)
 
 # Inherit some common CM stuff.
