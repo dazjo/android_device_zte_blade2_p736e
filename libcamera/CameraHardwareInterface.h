@@ -23,6 +23,7 @@
 #include <surfaceflinger/ISurface.h>
 #include <camera/Camera.h>
 #include <camera/CameraParameters.h>
+#include "IOverlay.h"
 
 namespace android {
 

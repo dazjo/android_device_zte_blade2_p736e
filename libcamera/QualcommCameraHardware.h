@@ -33,6 +33,14 @@
 #include <stdint.h>
 #include "Overlay.h"
 
+#include <utils/threads.h>
+#include <binder/MemoryHeapPmem.h>
+#include <utils/String16.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <math.h>
+
 extern "C" {
 #include <linux/android_pmem.h>
 #include <msm_camera.h>
@@ -432,7 +440,7 @@ private:
     CameraParameters mParameters;
     unsigned int frame_size;
     bool mCameraRunning;
-    Mutex mCameraRunningLock;
+    static Mutex mCameraRunningLock;
     bool mPreviewInitialized;
 
     // This class represents a heap which maintains several contiguous
@@ -503,35 +511,35 @@ private:
     void deinitRawSnapshot();
 
     bool mFrameThreadRunning;
-    Mutex mFrameThreadWaitLock;
-    Condition mFrameThreadWait;
+    static Mutex mFrameThreadWaitLock;
+    static Condition mFrameThreadWait;
     friend void *frame_thread(void *user);
     void runFrameThread(void *data);
 
     //720p recording video thread
     bool mVideoThreadExit;
     bool mVideoThreadRunning;
-    Mutex mVideoThreadWaitLock;
-    Condition mVideoThreadWait;
+    static Mutex mVideoThreadWaitLock;
+    static Condition mVideoThreadWait;
     friend void *video_thread(void *user);
     void runVideoThread(void *data);
 
 
     bool mShutterPending;
-    Mutex mShutterLock;
+    static Mutex mShutterLock;
 
     bool mSnapshotThreadRunning;
-    Mutex mSnapshotThreadWaitLock;
-    Condition mSnapshotThreadWait;
+    static Mutex mSnapshotThreadWaitLock;
+    static Condition mSnapshotThreadWait;
     friend void *snapshot_thread(void *user);
     void runSnapshotThread(void *data);
-    Mutex mRawPictureHeapLock;
+    static Mutex mRawPictureHeapLock;
     bool mJpegThreadRunning;
-    Mutex mJpegThreadWaitLock;
-    Condition mJpegThreadWait;
+    static Mutex mJpegThreadWaitLock;
+    static Condition mJpegThreadWait;
     bool mInSnapshotMode;
-    Mutex mInSnapshotModeWaitLock;
-    Condition mInSnapshotModeWait;
+    static Mutex mInSnapshotModeWaitLock;
+    static Condition mInSnapshotModeWait;
 
     void debugShowPreviewFPS() const;
     void debugShowVideoFPS() const;
@@ -570,20 +578,20 @@ private:
     void storePreviewFrameForPostview();
     bool isValidDimension(int w, int h);
 
-    Mutex mLock;
-    Mutex mCamframeTimeoutLock;
+    static Mutex mLock;
+    static Mutex mCamframeTimeoutLock;
     bool camframe_timeout_flag;
     bool mReleasedRecordingFrame;
 
     void receiveRawPicture(void);
     void receiveRawSnapshot(void);
 
-    Mutex mCallbackLock;
-    Mutex mOverlayLock;
-	Mutex mRecordLock;
-	Mutex mRecordFrameLock;
-	Condition mRecordWait;
-    Condition mStateWait;
+    static Mutex mCallbackLock;
+    static Mutex mOverlayLock;
+	static Mutex mRecordLock;
+	static Mutex mRecordFrameLock;
+	static Condition mRecordWait;
+    static Condition mStateWait;
 
     /* mJpegSize keeps track of the size of the accumulated JPEG.  We clear it
        when we are about to take a picture, so at any time it contains either
@@ -603,10 +611,10 @@ private:
     struct msm_camsensor_info mSensorInfo;
     cam_ctrl_dimension_t mDimension;
     bool mAutoFocusThreadRunning;
-    Mutex mAutoFocusThreadLock;
+    static Mutex mAutoFocusThreadLock;
     int mAutoFocusFd;
 
-    Mutex mAfLock;
+    static Mutex mAfLock;
 
     pthread_t mFrameThread;
     pthread_t mVideoThread;
