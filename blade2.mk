@@ -31,4 +31,5 @@ $(call inherit-product, device/zte/blade2/device.mk)
 PRODUCT_NAME := blade2
 PRODUCT_DEVICE := blade2
 PRODUCT_BRAND := ZTE
+PRODUCT_MANUFACTURER := ZTE
 PRODUCT_MODEL := ZTE Crescent
