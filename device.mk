@@ -25,6 +25,11 @@ $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 
+# Kernel
+KERNEL_EXTERNAL_MODULES:
+	cp device/zte/blade2/prebuilt/dhd.ko $(KERNEL_MODULES_OUT)
+TARGET_KERNEL_MODULES := KERNEL_EXTERNAL_MODULES
+
 PRODUCT_PACKAGES := \
         lights.blade2 \
         sensors.blade2 \
@@ -83,21 +88,15 @@ PRODUCT_COPY_FILES += \
         device/zte/blade2/firmware/nv_4330b1.txt:system/etc/nv_4330b2.txt \
         device/zte/blade2/init.wlanprop.sh:system/etc/init.wlanprop.sh
 
-# Kernel Modules
-KERNEL_EXTERNAL_MODULES:
-		cp device/zte/blade2/prebuilt/dhd.ko $(KERNEL_MODULES_OUT)
-
-TARGET_KERNEL_MODULES := KERNEL_EXTERNAL_MODULES
-
 # Graphics
 PRODUCT_COPY_FILES += \
-    device/zte/blade2/firmware/a225_pfp.fw:system/etc/firmware/a225_pfp.fw \
-    device/zte/blade2/firmware/a225_pm4.fw:system/etc/firmware/a225_pm4.fw \
-    device/zte/blade2/firmware/a225p5_pm4.fw:system/etc/firmware/a225p5_pm4.fw \
-    device/zte/blade2/firmware/a300_pfp.fw:system/etc/firmware/a300_pfp.fw \
-    device/zte/blade2/firmware/a300_pm4.fw:system/etc/firmware/a300_pm4.fw \
-    device/zte/blade2/firmware/leia_pfp_470.fw:system/etc/firmware/leia_pfp_470.fw \
-    device/zte/blade2/firmware/leia_pm4_470.fw:system/etc/firmware/leia_pm4_470.fw \
+        device/zte/blade2/firmware/a225_pfp.fw:system/etc/firmware/a225_pfp.fw \
+        device/zte/blade2/firmware/a225_pm4.fw:system/etc/firmware/a225_pm4.fw \
+        device/zte/blade2/firmware/a225p5_pm4.fw:system/etc/firmware/a225p5_pm4.fw \
+        device/zte/blade2/firmware/a300_pfp.fw:system/etc/firmware/a300_pfp.fw \
+        device/zte/blade2/firmware/a300_pm4.fw:system/etc/firmware/a300_pm4.fw \
+        device/zte/blade2/firmware/leia_pfp_470.fw:system/etc/firmware/leia_pfp_470.fw \
+        device/zte/blade2/firmware/leia_pm4_470.fw:system/etc/firmware/leia_pm4_470.fw \
 
 # Live Wallpapers
 PRODUCT_PACKAGES += \
@@ -108,27 +107,27 @@ PRODUCT_PACKAGES += \
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
-         frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
-         frameworks/base/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
-         frameworks/base/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
-         frameworks/base/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
-         frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
-         frameworks/base/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
-         frameworks/base/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
-         frameworks/base/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
-         packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
+        frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
+        frameworks/base/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
+        frameworks/base/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
+        frameworks/base/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
+        frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
+        frameworks/base/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
+        frameworks/base/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
+        frameworks/base/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
+        packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
 PRODUCT_PACKAGES += \
-         librs_jni
+        librs_jni
 
 # for bugmailer
 ifneq ($(TARGET_BUILD_VARIANT),user)
-         PRODUCT_PACKAGES += send_bug
-         PRODUCT_COPY_FILES += \
-                 system/extras/bugmailer/bugmailer.sh:system/bin/bugmailer.sh \
-                 system/extras/bugmailer/send_bug:system/bin/send_bug
+        PRODUCT_PACKAGES += send_bug
+        PRODUCT_COPY_FILES += \
+                system/extras/bugmailer/bugmailer.sh:system/bin/bugmailer.sh \
+                system/extras/bugmailer/send_bug:system/bin/send_bug
 endif
 
 $(call inherit-product, frameworks/base/build/phone-hdpi-512-dalvik-heap.mk)

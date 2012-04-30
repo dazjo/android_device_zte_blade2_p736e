@@ -32,8 +32,12 @@ BOARD_CUSTOM_GRAPHICS := ../../../device/zte/blade2/recovery/graphics.c
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/zte/blade2/recovery/recovery_ui.c
 TARGET_RECOVERY_INITRC := device/zte/blade2/recovery/recovery.rc
 
+# Attempt kernel building
 TARGET_KERNEL_SOURCE := kernel/zte/blade2
 TARGET_KERNEL_CONFIG := cyanogen_blade2_p736v_defconfig
+
+# Prebuilt fallback kernel
+TARGET_PREBUILT_KERNEL := device/zte/blade2/kernel
 
 BOARD_KERNEL_BASE := 0x02600000
 BOARD_KERNEL_CMDLINE := androidboot.hardware=blade2 console=null
@@ -61,8 +65,6 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x00600000
 BOARD_SYSTEMIMAGE_PARTITION_SIZE   := 0x0dc00000
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x0a280000
 BOARD_FLASH_BLOCK_SIZE := 131072
-
-
 
 # Wi-Fi
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
