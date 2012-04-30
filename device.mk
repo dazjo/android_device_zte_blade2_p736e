@@ -66,6 +66,7 @@ PRODUCT_COPY_FILES := \
         device/zte/blade2/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
         device/zte/blade2/media_profiles.xml:system/etc/media_profiles.xml \
         device/zte/blade2/prebuilt/start_usb0.sh:system/etc/start_usb0.sh \
+        device/zte/blade2/init.qcom.fm.sh:system/etc/init.qcom.fm.sh \
         device/zte/blade2/gps.conf:system/etc/gps.conf
 
 # Bluetooth configuration files
@@ -74,15 +75,19 @@ PRODUCT_COPY_FILES += \
 
 # Wi-Fi
 PRODUCT_COPY_FILES += \
-        device/zte/blade2/prebuilt/dhd.ko:system/lib/modules/dhd.ko \
         device/zte/blade2/firmware/fw_4330b1.bin:system/etc/fw_4330b1.bin \
         device/zte/blade2/firmware/fw_4330b2.bin:system/etc/fw_4330b2.bin \
         device/zte/blade2/firmware/fw_4330_b1_apsta.bin:system/etc/fw_4330_b1_apsta.bin \
         device/zte/blade2/firmware/fw_4330_b2_apsta.bin:system/etc/fw_4330_b2_apsta.bin \
         device/zte/blade2/firmware/nv_4330b1.txt:system/etc/nv_4330b1.txt \
         device/zte/blade2/firmware/nv_4330b1.txt:system/etc/nv_4330b2.txt \
-        device/zte/blade2/init.qcom.fm.sh:system/etc/init.qcom.fm.sh \
         device/zte/blade2/init.wlanprop.sh:system/etc/init.wlanprop.sh
+
+# Kernel Modules
+KERNEL_EXTERNAL_MODULES:
+		cp device/zte/blade2/prebuilt/dhd.ko $(KERNEL_MODULES_OUT)
+
+TARGET_KERNEL_MODULES := KERNEL_EXTERNAL_MODULES
 
 # Graphics
 PRODUCT_COPY_FILES += \
