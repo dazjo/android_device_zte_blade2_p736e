@@ -25,11 +25,6 @@ $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 
-# Kernel
-KERNEL_EXTERNAL_MODULES:
-	cp device/zte/blade2/prebuilt/dhd.ko $(KERNEL_MODULES_OUT)
-TARGET_KERNEL_MODULES := KERNEL_EXTERNAL_MODULES
-
 PRODUCT_PACKAGES := \
         lights.blade2 \
         sensors.blade2 \
@@ -83,6 +78,7 @@ PRODUCT_COPY_FILES += \
 
 # Wi-Fi
 PRODUCT_COPY_FILES += \
+        device/zte/blade2/prebuilt/dhd.ko:system/lib/modules/dhd.ko \
         device/zte/blade2/firmware/fw_4330b1.bin:system/etc/fw_4330b1.bin \
         device/zte/blade2/firmware/fw_4330b2.bin:system/etc/fw_4330b2.bin \
         device/zte/blade2/firmware/fw_4330_b1_apsta.bin:system/etc/fw_4330_b1_apsta.bin \
