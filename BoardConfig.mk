@@ -37,7 +37,7 @@ TARGET_KERNEL_SOURCE := kernel/zte/blade2
 TARGET_KERNEL_CONFIG := cyanogen_blade2_p736v_defconfig
 
 # Prebuilt fallback kernel
-TARGET_PREBUILT_KERNEL := device/zte/blade2/kernel
+TARGET_PREBUILT_KERNEL := device/zte/blade2/prebuilt/kernel
 
 BOARD_KERNEL_BASE := 0x02600000
 BOARD_KERNEL_CMDLINE := androidboot.hardware=blade2 console=null
