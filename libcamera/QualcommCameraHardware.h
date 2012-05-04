@@ -44,6 +44,7 @@ struct str_map {
 };
 
 typedef enum {
+    TARGET_MSM7227,
     TARGET_MSM7625,
     TARGET_MSM7627,
     TARGET_QSD8250,
