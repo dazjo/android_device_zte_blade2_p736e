@@ -145,7 +145,11 @@ CameraHAL_CopyBuffers_Hw(int srcFd, int destFd,
 
     blit.req.dst.width     = w;
     blit.req.dst.height    = h;
+#ifndef BINDER_COMPAT
+    blit.req.dst.offset    = destOffset;
+#else
     blit.req.dst.offset    = 0;
+#endif
     blit.req.dst.memory_id = destFd;
     blit.req.dst.format    = destFormat;
 
@@ -356,11 +360,12 @@ CameraHAL_FixupParams(android::CameraParameters &settings)
                    preferred_size);
    }
 
+   /* C3C0 20120503
    if (!settings.get(android::CameraParameters::KEY_SUPPORTED_PREVIEW_FRAME_RATES)) {
       settings.set(android::CameraParameters::KEY_SUPPORTED_PREVIEW_FRAME_RATES,
                    preview_frame_rates);
    }
-
+       
    if (!settings.get(android::CameraParameters::KEY_PREVIEW_FRAME_RATE)) {
       settings.set(android::CameraParameters::KEY_PREVIEW_FRAME_RATE,
                    preferred_frame_rate);
@@ -371,6 +376,7 @@ CameraHAL_FixupParams(android::CameraParameters &settings)
       settings.set(android::CameraParameters::KEY_SUPPORTED_PREVIEW_FPS_RANGE,
                    frame_rate_range);
    }
+   */
 }
 
 /* Hardware Camera interface handlers. */

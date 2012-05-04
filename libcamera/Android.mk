@@ -1,6 +1,6 @@
 LOCAL_PATH := $(call my-dir)
 
-## Make libcamera
+####### LIBCAMERA #######
 
 # When zero we link against libmmcamera; when 1, we dlopen libmmcamera.
 DLOPEN_LIBMMCAMERA:=1
@@ -14,9 +14,9 @@ LOCAL_SRC_FILES:= QualcommCameraHardware.cpp
 
 LOCAL_CFLAGS:= -DDLOPEN_LIBMMCAMERA=$(DLOPEN_LIBMMCAMERA)
 
-## Can be raised to 6 to improve framerate, at the cost of allocating
-## more ADSP memory. Use 0xa68000 as pool size in kernel to test
-LOCAL_CFLAGS+= -DNUM_PREVIEW_BUFFERS=6 -D_ANDROID_
+# Can be raised to 6 to improve framerate, at the cost of allocating
+# more ADSP memory. Use 0xa68000 as pool size in kernel to test
+LOCAL_CFLAGS+= -DNUM_PREVIEW_BUFFERS=2 -D_ANDROID_
 
 LOCAL_C_INCLUDES+= \
     $(TARGET_OUT_HEADERS)/mm-camera \
@@ -46,7 +46,10 @@ LOCAL_SRC_FILES      := cameraHal.cpp
 LOCAL_PRELINK_MODULE := false
 
 LOCAL_SHARED_LIBRARIES := liblog libdl libutils libcamera_client libbinder libcutils libhardware libcamera
-LOCAL_C_INCLUDES       := frameworks/base/services/ frameworks/base/include
-LOCAL_C_INCLUDES       += hardware/libhardware/include/ hardware/libhardware/modules/gralloc/
+
+LOCAL_C_INCLUDES       := frameworks/base/services \
+                          frameworks/base/include \
+                          hardware/libhardware/include \
+                          hardware/qcom/display/libgralloc
 
 include $(BUILD_SHARED_LIBRARY)

@@ -71,6 +71,7 @@ PRODUCT_COPY_FILES := \
         device/zte/blade2/prebuilt/start_usb0.sh:system/etc/start_usb0.sh \
         device/zte/blade2/init.qcom.fm.sh:system/etc/init.qcom.fm.sh \
         device/zte/blade2/gps.conf:system/etc/gps.conf
+        # device/zte/blade2/prebuilt/libcamera.so:system/lib/libcamera.so
 
 # Bluetooth configuration files
 PRODUCT_COPY_FILES += \
