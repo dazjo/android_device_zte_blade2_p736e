@@ -32,11 +32,15 @@ PRODUCT_PACKAGES := \
         Blade2Parts \
         libmm-omxcore \
         libOmxCore \
+        libdivxdrmdecrypt \
+        libOmxAacEnc \
+        libOmxAmrEnc \
         libOmxVdec \
         libOmxVenc \
         libstagefrighthw \
         dexpreopt \
-        camera.msm7x27 \
+        libcamera \
+        camera.blade2 \
         gralloc.msm7x27 \
         copybit.msm7x27 \
         hwcomposer.msm7x27
@@ -71,7 +75,6 @@ PRODUCT_COPY_FILES := \
         device/zte/blade2/prebuilt/start_usb0.sh:system/etc/start_usb0.sh \
         device/zte/blade2/init.qcom.fm.sh:system/etc/init.qcom.fm.sh \
         device/zte/blade2/gps.conf:system/etc/gps.conf
-        # device/zte/blade2/prebuilt/libcamera.so:system/lib/libcamera.so
 
 # Bluetooth configuration files
 PRODUCT_COPY_FILES += \

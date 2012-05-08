@@ -33,6 +33,7 @@ BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/zte/blade2/recovery/recovery_ui
 TARGET_RECOVERY_INITRC := device/zte/blade2/recovery/recovery.rc
 
 # Attempt kernel building
+BUILD_KERNEL := true
 TARGET_KERNEL_SOURCE := kernel/zte/blade2
 TARGET_KERNEL_CONFIG := cyanogen_blade2_p736v_defconfig
 
@@ -94,7 +95,6 @@ BOARD_USES_QCOM_HARDWARE := true
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DREFRESH_RATE=60
 
 BOARD_USES_QCOM_LIBS := true
-BOARD_USE_QCOM_PMEM := true
 
 TARGET_USES_GENLOCK := true
 TARGET_FORCE_CPU_UPLOAD := true
