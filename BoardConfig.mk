@@ -87,9 +87,7 @@ BOARD_PROVIDES_LIBRIL := true
 
 TARGET_SPECIFIC_HEADER_PATH := device/zte/blade2/include
 
-BOARD_USE_USB_MASS_STORAGE_SWITCH := true
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/usb_mass_storage/lun
-BOARD_UMS_LUNFILE := "/sys/devices/platform/usb_mass_storage/lun0/file"
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun0/file
 
 BOARD_USES_QCOM_HARDWARE := true
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DREFRESH_RATE=60
