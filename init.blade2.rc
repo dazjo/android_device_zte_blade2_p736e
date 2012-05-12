@@ -115,9 +115,9 @@ service hci_qcomm_init /system/bin/log -t qcom-bluetooth -p i "hci_qcomm_init se
     disabled
     oneshot
 
-service hciattach /system/bin/hciattach -n -s 115200 /dev/ttyHS0 bcm2035
+service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     class main
-    user bluetooth
+    user root
     group qcom_oncrpc bluetooth net_bt_admin system
     disabled
     oneshot
