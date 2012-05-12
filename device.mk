@@ -69,8 +69,7 @@ PRODUCT_COPY_FILES := \
         device/zte/blade2/media_profiles.xml:system/etc/media_profiles.xml \
         device/zte/blade2/prebuilt/start_usb0.sh:system/etc/start_usb0.sh \
         device/zte/blade2/init.qcom.fm.sh:system/etc/init.qcom.fm.sh \
-        device/zte/blade2/prebuilt/libcamera.so:system/lib/libcamera.so \
-        device/zte/blade2/prebuilt/libcamera.so:obj/lib/libcamera.so \
+        device/zte/blade2/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
         device/zte/blade2/gps.conf:system/etc/gps.conf
 
 # Bluetooth configuration files
@@ -117,8 +116,7 @@ PRODUCT_COPY_FILES += \
         frameworks/base/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
         frameworks/base/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
         frameworks/base/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
-        frameworks/base/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
-        packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
+        frameworks/base/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 

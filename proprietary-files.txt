@@ -26,7 +26,6 @@ lib/libmmjpeg.so
 lib/libmmipl.so
 
 ## BT proprietary
-etc/init.qcom.bt.sh
 bin/hci_qcomm_init
 bin/hciattach
 
