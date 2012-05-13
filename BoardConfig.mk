@@ -75,7 +75,7 @@ BOARD_WLAN_DEVICE := bcm4330
 WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/dhd.ko"
 WIFI_DRIVER_FW_PATH_AP := "/system/etc/fw_4330b1.bin"
 WIFI_DRIVER_FW_PATH_STA := "/system/etc/fw_4330_b1_apsta.bin"
-WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/fw_4330b1.bin nvram_path=/system/etc/nv_4330b1.txt iface_name=wlan"
+WIFI_DRIVER_MODULE_ARG := "fwb1_path=/system/etc/fw_4330b1.bin fwb2_path=/system/etc/fw_4330b2.bin nvram_path=/system/etc/nv_4330b1.txt iface_name=wlan"
 WIFI_DRIVER_MODULE_NAME := "dhd"
 
 # Touchscreen
