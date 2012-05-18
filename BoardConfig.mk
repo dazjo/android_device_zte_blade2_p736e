@@ -25,31 +25,26 @@ TARGET_CPU_ABI := armeabi-v6l
 TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH_VARIANT := armv6-vfp
 
-TARGET_NO_BOOTLOADER := true
-
 TARGET_PREBUILT_RECOVERY_KERNEL := device/zte/blade2/recovery_kernel
 BOARD_CUSTOM_GRAPHICS := ../../../device/zte/blade2/recovery/graphics.c
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/zte/blade2/recovery/recovery_ui.c
 TARGET_RECOVERY_INITRC := device/zte/blade2/recovery/recovery.rc
 
 # Attempt kernel building
-BUILD_KERNEL := true
 TARGET_KERNEL_SOURCE := kernel/zte/blade2
 TARGET_KERNEL_CONFIG := cyanogen_blade2_p736v_defconfig
 
 # Prebuilt fallback kernel
 TARGET_PREBUILT_KERNEL := device/zte/blade2/prebuilt/kernel
 
+BUILD_KERNEL := true
 BOARD_KERNEL_BASE := 0x02600000
 BOARD_KERNEL_CMDLINE := androidboot.hardware=blade2 console=null
 
+TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 TARGET_BOARD_PLATFORM := msm7x27
 TARGET_BOOTLOADER_BOARD_NAME := blade2
-
-BOARD_EGL_CFG := device/zte/blade2/egl.cfg
-
-USE_OPENGL_RENDERER := true
 
 # dev:    size   erasesize  name
 # mtd0: 00600000 00020000 "recovery"
@@ -81,9 +76,11 @@ WIFI_DRIVER_MODULE_NAME := "dhd"
 # Touchscreen
 BOARD_USE_LEGACY_TOUCHSCREEN := true
 
+# Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 
+# RIL
 BOARD_PROVIDES_LIBRIL := true
 
 TARGET_SPECIFIC_HEADER_PATH := device/zte/blade2/include
@@ -95,6 +92,8 @@ BOARD_USES_QCOM_HARDWARE := true
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DREFRESH_RATE=60
 BOARD_USES_QCOM_LIBS := true
 
+BOARD_EGL_CFG := device/zte/blade2/egl.cfg
+USE_OPENGL_RENDERER := true
 TARGET_USES_GENLOCK := true
 TARGET_FORCE_CPU_UPLOAD := true
 
