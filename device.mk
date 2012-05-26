@@ -54,6 +54,7 @@ PRODUCT_COPY_FILES := \
         device/zte/blade2/ueventd.blade2.rc:root/ueventd.blade2.rc \
         device/zte/blade2/usbconfig:root/sbin/usbconfig \
         device/zte/blade2/vold.fstab:system/etc/vold.fstab \
+        device/zte/blade2/prebuilt/qwerty.kl:system/usr/keylayout/qwerty.kl \
         device/zte/blade2/prebuilt/blade2_keypad.kl:system/usr/keylayout/blade2_keypad.kl \
         device/zte/blade2/prebuilt/atmel-touchscreen.kl:system/usr/keylayout/atmel-touchscreen.kl \
         device/zte/blade2/prebuilt/synaptics-rmi4-ts.kl:system/usr/keylayout/synaptics-rmi4-ts.kl \
