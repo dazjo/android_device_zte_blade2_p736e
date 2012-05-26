@@ -14,5 +14,5 @@
 # limitations under the License.
 #
 
-add_lunch_combo blade2-userdebug
-add_lunch_combo blade2-eng
+add_lunch_combo zte_blade2-userdebug
+add_lunch_combo zte_blade2-eng

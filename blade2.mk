@@ -28,7 +28,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony.mk)
 $(call inherit-product, device/zte/blade2/device.mk)
 
 # Set those variables here to overwrite the inherited values.
-PRODUCT_NAME := blade2
+PRODUCT_NAME := zte_blade2
 PRODUCT_DEVICE := blade2
 PRODUCT_BRAND := ZTE
 PRODUCT_MANUFACTURER := ZTE
