@@ -18,7 +18,7 @@ public class DeviceSettings extends PreferenceActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		addPreferencesFromResource(R.xml.blade2parts);
+		addPreferencesFromResource(R.xml.crescentparts);
 	}
 
    private void writeValue(String parameter, int value) {

@@ -34,7 +34,7 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <receiver android:name=".Blade2PartsStartup">
+        <receiver android:name=".CrescentPartsStartup">
             <intent-filter android:priority="100">
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>

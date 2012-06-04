@@ -29,7 +29,7 @@ PRODUCT_PACKAGES := \
         lights.blade2 \
         sensors.blade2 \
         librpc \
-        Blade2Parts \
+        CrescentParts \
         libmm-omxcore \
         libOmxCore \
         libstagefrighthw \

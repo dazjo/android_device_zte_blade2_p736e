@@ -10,7 +10,7 @@ import java.io.FileOutputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class Blade2PartsStartup extends BroadcastReceiver
+public class CrescentPartsStartup extends BroadcastReceiver
 {
    private void writeValue(String parameter, int value) {
       try {
