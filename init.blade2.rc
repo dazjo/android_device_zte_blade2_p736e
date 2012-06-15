@@ -102,6 +102,13 @@ on boot
 service qmuxd /system/bin/qmuxd 
     class main
 
+# Necessary to have functional Bluetooth with Wi-Fi disabled.
+on property:init.svc.hciattach=running
+    write /sys/class/rfkill/rfkill1/state 1
+
+on property:init.svc.hciattach=stopped
+    write /sys/class/rfkill/rfkill1/state 0
+
 on property:init.svc.bluetoothd=running
     write /sys/devices/virtual/bluetooth/hci0/idle_timeout 7000
     start abtfilt
