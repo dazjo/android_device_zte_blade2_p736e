@@ -33,7 +33,7 @@
 #
 # 2) in start_hci_attach() - use BCM sleep switch instead of default bluetooth sleep switch to make
 #    BT release wake lock on suspend
-#    
+#
 
 # DEFAULT BT sleep switch
 BLUETOOTH_SLEEP_PATH=/proc/bluetooth/sleep/proto
@@ -46,7 +46,7 @@ LOG_NAME="${0}:"
 
 # these are our correct parameters for hciattach
 BTS_DEVICE="/dev/ttyHS0"
-BTS_TYPE="bcm2035" 
+BTS_TYPE="bcm2035"
 BTS_BAUD="115200"
 
 hciattach_pid=""
@@ -64,7 +64,7 @@ logi ()
 failed ()
 {
   loge "$1: exit code $2"
-  exit $2 
+  exit $2
 }
 
 start_hciattach ()

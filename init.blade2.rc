@@ -99,7 +99,7 @@ on boot
     write /sys/devices/platform/mass_storage/lun0/file /dev/block/mmcblk0p1
     write /sys/bus/platform/drivers/msm_sdcc/msm_sdcc.1/polling 1
 
-service qmuxd /system/bin/qmuxd 
+service qmuxd /system/bin/qmuxd
     class main
 
 # Necessary to have functional Bluetooth with Wi-Fi disabled.

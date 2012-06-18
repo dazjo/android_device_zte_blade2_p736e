@@ -1031,7 +1031,7 @@ void QualcommCameraHardware::initDefaultParameters()
         mParameters.set(
             CameraParameters::KEY_SUPPORTED_PREVIEW_FRAME_RATES,
             DEFAULT_FPS);
-    }    
+    }
 
     mParameters.setPreviewFormat("yuv420sp"); // informative
 
@@ -1059,7 +1059,7 @@ void QualcommCameraHardware::initDefaultParameters()
                     CameraParameters::WHITE_BALANCE_AUTO);
     mParameters.set(CameraParameters::KEY_FOCUS_MODE,
                     CameraParameters::FOCUS_MODE_AUTO);
-     
+
     mParameters.set(CameraParameters::KEY_SUPPORTED_PREVIEW_FORMATS,
                     "yuv420sp");
 
@@ -2477,7 +2477,7 @@ void QualcommCameraHardware::release()
     mJpegThreadWaitLock.unlock();
 
     deinitRawSnapshot();
-    
+
     ctrlCmd.timeout_ms = 5000;
     ctrlCmd.length = 0;
     ctrlCmd.type = (uint16_t)CAMERA_EXIT;
@@ -3805,7 +3805,7 @@ status_t QualcommCameraHardware::setPictureSize(const CameraParameters& params)
     for (int i = 0; i < supportedPictureSizesCount; ++i) {
         if (width == picture_sizes_ptr[i].width
                 && height == picture_sizes_ptr[i].height) {
-            if (!strcmp(mSensorInfo.name, "ov5642") 
+            if (!strcmp(mSensorInfo.name, "ov5642")
 					&& width == 2592) {
 				/* WTF... The max this "5MPx" sensor supports is 4.75 */
                 width = 2560 ; height = 1920;
@@ -4673,7 +4673,7 @@ void QualcommCameraHardware::storePreviewFrameForPostview(void) {
     /* Since there is restriction on the maximum overlay dimensions
      * that can be created, we use the last preview frame as postview
      * for 7x30. */
-    LOGV(" Copying the preview buffer to postview buffer %d  ", 
+    LOGV(" Copying the preview buffer to postview buffer %d  ",
          mPreviewFrameSize);
     if( mPostViewHeap != NULL && mLastQueuedFrame != NULL) {
 	memcpy(mPostViewHeap->mHeap->base(),

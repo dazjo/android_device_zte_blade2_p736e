@@ -19,7 +19,7 @@
   when         who      what, where, why                   comment tag
   ----------   ----     ---------------------------------  ------------------------
  2011-05-19   lijing   add two camera support             ZTE_CAM_LJ_20110519
- 2011-02-21   wt       add flash ioctl id                 ZTE_CAM_WT_20110221 
+ 2011-02-21   wt       add flash ioctl id                 ZTE_CAM_WT_20110221
  2010-12-15   lijing   add Touch AF and AntiShake         ZTE_CAM_LJ_20101214
                         function
   2010-10-26   zt       add the interface of exposure      ZTE_ZT_CAM_20101026_04
@@ -669,7 +669,7 @@ struct sensor_cfg_data {
         uint16_t pictp_pl;
         uint32_t pict_max_exp_lc;
         uint16_t p_fps;
-        
+
         /*
          * Commented by zh.shj, ZTE_MSM_CAMERA_ZHSHJ_001
          */
@@ -681,18 +681,18 @@ struct sensor_cfg_data {
         int8_t iso_val;
         int8_t antibanding;
         int8_t lensshading;
-        
+
         /* ZTE_ZT_CAM_20101026_04
          * add the interface of exposure compensation for foryo
          */
         int8_t exposure;
-        
+
         struct sensor_pict_fps gfps;
         struct exp_gain_cfg exp_gain;
         struct focus_cfg focus;
         struct fps_cfg fps;
         struct wb_info_cfg wb_info;
-        
+
         /*
          * ZTE_CAM_LJ_20101214
          * add variables used for Touch AF and AntiShake function

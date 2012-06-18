@@ -133,7 +133,7 @@ CameraHAL_CopyBuffers_Hw(int srcFd, int destFd,
     struct blitreq blit;
     bool   success = true;
     int    fb_fd = open("/dev/graphics/fb0", O_RDWR);
-    
+
 #ifndef MSM_COPY_HW
     return false;
 #endif
@@ -269,7 +269,7 @@ CameraHAL_HandlePreviewData(const android::sp<android::IMemory>& dataPtr,
                          GRALLOC_USAGE_SW_READ_OFTEN);
 
       retVal = mWindow->set_buffers_geometry(mWindow,
-                                             previewWidth, previewHeight, 
+                                             previewWidth, previewHeight,
 #ifdef HWA
                                              HAL_PIXEL_FORMAT_RGBX_8888
 #else
@@ -481,7 +481,7 @@ CameraHAL_FixupParams(android::CameraParameters &settings)
       settings.set(android::CameraParameters::KEY_SUPPORTED_PREVIEW_FRAME_RATES,
                    preview_frame_rates);
    }
-       
+
    if (!settings.get(android::CameraParameters::KEY_PREVIEW_FRAME_RATE)) {
       settings.set(android::CameraParameters::KEY_PREVIEW_FRAME_RATE,
                    preferred_frame_rate);
@@ -636,7 +636,7 @@ void
 qcamera_release_recording_frame(struct camera_device * device,
                                 const void *opaque)
 {
-   /* 
+   /*
     * We release the frame immediately in CameraHAL_DataTSCb after making a
     * copy. So, this is just a NOP.
     */
@@ -659,7 +659,7 @@ qcamera_cancel_auto_focus(struct camera_device * device)
    return NO_ERROR;
 }
 
-int 
+int
 qcamera_take_picture(struct camera_device * device)
 {
    LOGV("qcamera_take_picture:\n");
@@ -717,7 +717,7 @@ qcamera_put_parameters(struct camera_device *device, char *params)
 
 
 int
-qcamera_send_command(struct camera_device * device, int32_t cmd, 
+qcamera_send_command(struct camera_device * device, int32_t cmd,
                         int32_t arg0, int32_t arg1)
 {
    LOGV("qcamera_send_command: cmd:%d arg0:%d arg1:%d\n",
@@ -732,7 +732,7 @@ qcamera_release(struct camera_device * device)
    qCamera->release();
 }
 
-int 
+int
 qcamera_dump(struct camera_device * device, int fd)
 {
    LOGV("qcamera_dump:\n");

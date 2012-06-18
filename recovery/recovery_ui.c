@@ -54,7 +54,7 @@ int device_handle_key(int key_code, int visible) {
                 break;
 	    case KEY_HOME:
                 return SELECT_ITEM;
-            
+
             case KEY_BACK:
                 if (!get_allow_toggle_display())
                     return GO_BACK;
