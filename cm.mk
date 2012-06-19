@@ -1,7 +1,10 @@
 $(call inherit-product, device/zte/blade2/blade2.mk)
 
+# Correct bootanimation size for the screen
+TARGET_BOOTANIMATION_NAME := vertical-480x800
+
 # Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+$(call inherit-product, vendor/cm/config/common_mini_phone.mk)
 
 # Inherit some common CM stuff.
 $(call inherit-product, vendor/cm/config/gsm.mk)
@@ -14,3 +17,4 @@ PRODUCT_BRAND := ZTE
 PRODUCT_MANUFACTURER := ZTE
 PRODUCT_MODEL := Crescent
 PRODUCT_RELEASE_NAME := Crescent
+
