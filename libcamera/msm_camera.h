@@ -752,10 +752,4 @@ struct msm_camsensor_info {
 	int8_t total_steps;
 };
 
-// camera fatal errors
-enum {
-    CAMERA_ERROR_UKNOWN  = 1,
-    CAMERA_ERROR_RESOURCE = 2,
-};
-
 #endif /* __LINUX_MSM_CAMERA_H */
