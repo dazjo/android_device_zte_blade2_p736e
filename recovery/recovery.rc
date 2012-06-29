@@ -24,7 +24,6 @@ on init
     mount /tmp /tmp tmpfs
 
 on boot
-
     ifup lo
     hostname localhost
     domainname localdomain
@@ -32,6 +31,9 @@ on boot
     class_start default
 
     setprop service.adb.root 1
+
+    write /sys/class/leds/lcd-backlight/brightness 255
+    write /sys/class/leds/button-backlight/brightness 255
 
 service ueventd /sbin/ueventd
     critical
