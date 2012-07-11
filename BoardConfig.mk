@@ -23,7 +23,7 @@ USE_CAMERA_STUB := true
 
 TARGET_CPU_ABI := armeabi-v6l
 TARGET_CPU_ABI2 := armeabi
-TARGET_ARCH_VARIANT := armv5te-vfp
+TARGET_ARCH_VARIANT := armv6-vfp
 
 TARGET_PREBUILT_RECOVERY_KERNEL := device/zte/blade2/recovery_kernel
 BOARD_CUSTOM_GRAPHICS := ../../../device/zte/blade2/recovery/graphics.c
@@ -31,7 +31,7 @@ BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/zte/blade2/recovery/recovery_ui
 TARGET_RECOVERY_INITRC := device/zte/blade2/recovery/recovery.rc
 
 # Attempt kernel building
-TARGET_KERNEL_SOURCE := kernel/zte/blade2
+TARGET_KERNEL_SOURCE := kernel/zte/zte-kernel-msm7x27
 TARGET_KERNEL_CONFIG := cyanogen_blade2_p736v_defconfig
 
 # Prebuilt fallback kernel
