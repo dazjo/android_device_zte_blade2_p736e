@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-#define ALOG_TAG "lights.zte"
+#define LOG_TAG "lights.zte"
 
 #include <cutils/log.h>
 #include <stdint.h>

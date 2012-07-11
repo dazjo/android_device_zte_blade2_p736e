@@ -23,9 +23,9 @@
 ** Please do not change the EXIF header without asking me first.
 */
 
-#define ALOG_NDEBUG 0
-#define ALOG_NIDEBUG 0
-#define ALOG_TAG "QualcommCameraHardware"
+#define LOG_NDEBUG 0
+#define LOG_NIDEBUG 0
+#define LOG_TAG "QualcommCameraHardware"
 #include <utils/Log.h>
 
 #include "QualcommCameraHardware.h"

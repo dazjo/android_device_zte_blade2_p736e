@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define ALOG_TAG "CameraHAL"
+#define LOG_TAG "CameraHAL"
 
 #include <CameraHardwareInterface.h>
 #include <hardware/hardware.h>
@@ -28,7 +28,7 @@
 #include <dlfcn.h>
 
 #define NO_ERROR 0
-//#define ALOGV LOGI
+//#define ALOGV ALOGI
 #define GRALLOC_USAGE_PMEM_PRIVATE_ADSP GRALLOC_USAGE_PRIVATE_0
 #define MSM_COPY_HW 1
 #define HWA 1

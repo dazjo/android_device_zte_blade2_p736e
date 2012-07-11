@@ -15,7 +15,7 @@
 ** limitations under the License.
 */
 
-#define ALOG_TAG "RILC"
+#define LOG_TAG "RILC"
 
 #include <stdlib.h>
 #include <unistd.h>
