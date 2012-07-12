@@ -32,8 +32,8 @@ LOCAL_SRC_FILES :=                                              \
                                 nusensors.cpp                   \
                                 InputEventReader.cpp            \
                                 SensorBase.cpp                  \
-                                CrescentProximity.cpp           \
-                                CrescentLight.cpp               \
+                                Blade2Proximity.cpp             \
+                                Blade2Light.cpp                 \
                                 AkmSensor.cpp
 
 LOCAL_SHARED_LIBRARIES := liblog libcutils
