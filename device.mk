@@ -28,6 +28,7 @@ PRODUCT_AAPT_PREF_CONFIG := hdpi
 PRODUCT_PACKAGES := \
         lights.blade2 \
         sensors.blade2 \
+        lights.msm7x27 \
         librpc \
         CrescentParts \
         libmm-omxcore \

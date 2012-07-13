@@ -54,7 +54,7 @@ on boot
    write /sys/module/g_android/parameters/serial_number CM9-Blade2
    write /sys/module/g_android/parameters/product_id 0x1351
 
-#create WIFI filesystem structure
+# WIFI filesystem structure
     mkdir /data/misc 01771 system misc
     mkdir /data/misc/wifi 0770 system wifi
     mkdir /data/misc/wifi/sockets
@@ -74,6 +74,8 @@ on boot
 # For qmuxd socket
     mkdir /data/radio 0770 radio radio
     chown radio radio 0770 /data/radio
+	chmod 7777 /data/radio/*
+	chown radio radio /data/radio/*
 
     chown system system /sys/class/leds/green/blink
     chown system system /sys/class/leds/green/brightness
