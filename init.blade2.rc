@@ -74,8 +74,8 @@ on boot
 # For qmuxd socket
     mkdir /data/radio 0770 radio radio
     chown radio radio 0770 /data/radio
-	chmod 7777 /data/radio/*
-	chown radio radio /data/radio/*
+    chmod 7777 /data/radio/*
+    chown radio radio /data/radio/*
 
     chown system system /sys/class/leds/green/blink
     chown system system /sys/class/leds/green/brightness
