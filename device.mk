@@ -38,8 +38,7 @@ PRODUCT_PACKAGES := \
         camera.msm7x27 \
         copybit.msm7x27 \
         hwcomposer.msm7x27 \
-        libQcomUI \
-        hwcomposer.blade2
+        libQcomUI
 
 PRODUCT_PACKAGES += \
         audio.primary.blade2 \
@@ -69,6 +68,7 @@ PRODUCT_COPY_FILES := \
         device/zte/blade2/AudioFilter.csv:system/etc/AudioFilter.csv \
         device/zte/blade2/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
         device/zte/blade2/media_profiles.xml:system/etc/media_profiles.xml \
+        device/zte/blade2/media_codecs.xml:system/etc/media_codecs.xml \
         device/zte/blade2/prebuilt/start_usb0.sh:system/etc/start_usb0.sh \
         device/zte/blade2/init.qcom.fm.sh:system/etc/init.qcom.fm.sh \
         device/zte/blade2/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
