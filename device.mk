@@ -72,7 +72,6 @@ PRODUCT_COPY_FILES := \
         device/zte/blade2/prebuilt/start_usb0.sh:system/etc/start_usb0.sh \
         device/zte/blade2/init.qcom.fm.sh:system/etc/init.qcom.fm.sh \
         device/zte/blade2/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
-        device/zte/blade2/releasetools/extras.sh:system/bin/extras.sh \
         device/zte/blade2/prebuilt/gralloc.blade2.so:system/lib/hw/gralloc.blade2.so
 
 # Bluetooth configuration files
