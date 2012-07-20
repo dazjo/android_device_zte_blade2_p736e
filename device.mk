@@ -37,8 +37,9 @@ PRODUCT_PACKAGES := \
         libcamera \
         camera.msm7x27 \
         copybit.msm7x27 \
-        hwcomposer.msm7x27 \
-        libQcomUI
+        gralloc.msm7x27 \
+        libQcomUI \
+        make_ext4fs
 
 PRODUCT_PACKAGES += \
         audio.primary.blade2 \
@@ -65,6 +66,7 @@ PRODUCT_COPY_FILES := \
         device/zte/blade2/prebuilt/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
         device/zte/blade2/prebuilt/Generic.kl:system/usr/keylayout/Generic.kl \
         device/zte/blade2/prebuilt/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
+        device/zte/blade2/audio_policy.conf:system/etc/audio_policy.conf \
         device/zte/blade2/AudioFilter.csv:system/etc/AudioFilter.csv \
         device/zte/blade2/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
         device/zte/blade2/media_profiles.xml:system/etc/media_profiles.xml \
