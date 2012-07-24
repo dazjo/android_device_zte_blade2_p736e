@@ -30,14 +30,18 @@ BOARD_CUSTOM_GRAPHICS := ../../../device/zte/blade2/recovery/graphics.c
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/zte/blade2/recovery/recovery_ui.c
 TARGET_RECOVERY_INITRC := device/zte/blade2/recovery/recovery.rc
 
-# Attempt kernel building
-TARGET_KERNEL_SOURCE := kernel/zte/zte-kernel-msm7x27
-TARGET_KERNEL_CONFIG := cyanogen_blade2_p736v_defconfig
-
-# Prebuilt fallback kernel
-TARGET_PREBUILT_KERNEL := device/zte/blade2/prebuilt/kernel
-
+# Kernel
 BUILD_KERNEL := true
+TARGET_KERNEL_SOURCE := kernel/zte/zte-kernel-msm7x27
+
+ifdef P736E
+TARGET_KERNEL_CONFIG := cyanogen_blade2_p736e_defconfig
+TARGET_PREBUILT_KERNEL := device/zte/blade2/kernel_p736e
+else
+TARGET_KERNEL_CONFIG := cyanogen_blade2_p736v_defconfig
+TARGET_PREBUILT_KERNEL := device/zte/blade2/kernel_p736v
+endif
+
 BOARD_KERNEL_BASE := 0x02600000
 BOARD_KERNEL_CMDLINE := androidboot.hardware=blade2 console=null
 

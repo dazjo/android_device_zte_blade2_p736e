@@ -127,6 +127,14 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 PRODUCT_PACKAGES += \
         librs_jni
 
+ifdef P736E
+PRODUCT_PROPERTY_OVERRIDES += \
+        ro.build.baseband_version=P736EB01
+else
+PRODUCT_PROPERTY_OVERRIDES += \
+        ro.build.baseband_version=P736VB01
+endif
+
 # for bugmailer
 ifneq ($(TARGET_BUILD_VARIANT),user)
         PRODUCT_PACKAGES += send_bug
