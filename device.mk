@@ -36,9 +36,10 @@ PRODUCT_PACKAGES := \
         dexpreopt \
         libcamera \
         camera.msm7x27 \
-        copybit.msm7x27 \
+        copybit.blade2 \
         gralloc.msm7x27 \
         libQcomUI \
+        setup_fs \
         make_ext4fs
 
 PRODUCT_PACKAGES += \
@@ -143,5 +144,4 @@ ifneq ($(TARGET_BUILD_VARIANT),user)
                 system/extras/bugmailer/send_bug:system/bin/send_bug
 endif
 
-$(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
 $(call inherit-product-if-exists, vendor/zte/blade2/blade2-vendor.mk)
