@@ -28,7 +28,7 @@ LOCAL_PATH:= $(call my-dir)
     LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
     LOCAL_SHARED_LIBRARIES := liblog
     LOCAL_SRC_FILES := copybit.cpp
-    LOCAL_MODULE := copybit.skate
+    LOCAL_MODULE := copybit.blade2
     LOCAL_CFLAGS += -DCOPYBIT_MSM7K=1
     LOCAL_C_INCLUDES += hardware/qcom/display/libgralloc
     LOCAL_C_INCLUDES += $(TARGET_OUT_HEADERS)/qcom/display/libgralloc
