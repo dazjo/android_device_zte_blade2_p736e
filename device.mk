@@ -20,33 +20,23 @@
 # Everything in this directory will become public
 
 DEVICE_PACKAGE_OVERLAYS := device/zte/blade2/overlay
-$(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
-PRODUCT_AAPT_CONFIG := normal hdpi
-PRODUCT_AAPT_PREF_CONFIG := hdpi
+# Baseband versions for device variations
+ifdef P736E
+PRODUCT_PROPERTY_OVERRIDES += \
+        ro.build.baseband_version=P736EB01
+else
+PRODUCT_PROPERTY_OVERRIDES += \
+        ro.build.baseband_version=P736VB01
+endif
 
 PRODUCT_PACKAGES := \
         lights.blade2 \
         sensors.blade2 \
-        librpc \
         CrescentParts \
-        libmm-omxcore \
-        libOmxCore \
-        libstagefrighthw \
-        dexpreopt \
-        libcamera \
-        camera.msm7x27 \
         copybit.blade2 \
-        gralloc.msm7x27 \
-        libQcomUI \
-        setup_fs \
-        make_ext4fs
-
-PRODUCT_PACKAGES += \
         audio.primary.blade2 \
-        audio_policy.blade2 \
-        audio.a2dp.default \
-        libaudioutils
+        audio_policy.blade2
 
 DISABLE_DEXPREOPT := false
 
@@ -55,7 +45,6 @@ PRODUCT_COPY_FILES := \
         device/zte/blade2/init.blade2.usb.rc:root/init.blade2.usb.rc \
         device/zte/blade2/ueventd.blade2.rc:root/ueventd.blade2.rc \
         device/zte/blade2/usbconfig:root/sbin/usbconfig \
-        device/zte/blade2/vold.fstab:system/etc/vold.fstab \
         device/zte/blade2/prebuilt/qwerty.kl:system/usr/keylayout/qwerty.kl \
         device/zte/blade2/prebuilt/blade2_keypad.kl:system/usr/keylayout/blade2_keypad.kl \
         device/zte/blade2/prebuilt/atmel-touchscreen.kl:system/usr/keylayout/atmel-touchscreen.kl \
@@ -67,19 +56,9 @@ PRODUCT_COPY_FILES := \
         device/zte/blade2/prebuilt/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
         device/zte/blade2/prebuilt/Generic.kl:system/usr/keylayout/Generic.kl \
         device/zte/blade2/prebuilt/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
-        device/zte/blade2/audio_policy.conf:system/etc/audio_policy.conf \
-        device/zte/blade2/AudioFilter.csv:system/etc/AudioFilter.csv \
-        device/zte/blade2/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt \
-        device/zte/blade2/media_profiles.xml:system/etc/media_profiles.xml \
-        device/zte/blade2/media_codecs.xml:system/etc/media_codecs.xml \
-        device/zte/blade2/prebuilt/start_usb0.sh:system/etc/start_usb0.sh \
         device/zte/blade2/init.qcom.fm.sh:system/etc/init.qcom.fm.sh \
         device/zte/blade2/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
         device/zte/blade2/prebuilt/gralloc.blade2.so:system/lib/hw/gralloc.blade2.so
-
-# Bluetooth configuration files
-PRODUCT_COPY_FILES += \
-        system/bluetooth/data/main.le.conf:system/etc/bluetooth/main.conf
 
 # Wi-Fi
 PRODUCT_COPY_FILES += \
@@ -111,37 +90,8 @@ PRODUCT_PACKAGES += \
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
-        frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
         frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
-        frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
-        frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
-        frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
-        frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
-        frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
-        frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
-        frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
-        frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
-        frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
+        frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml
 
-PRODUCT_TAGS += dalvik.gc.type-precise
-
-PRODUCT_PACKAGES += \
-        librs_jni
-
-ifdef P736E
-PRODUCT_PROPERTY_OVERRIDES += \
-        ro.build.baseband_version=P736EB01
-else
-PRODUCT_PROPERTY_OVERRIDES += \
-        ro.build.baseband_version=P736VB01
-endif
-
-# for bugmailer
-ifneq ($(TARGET_BUILD_VARIANT),user)
-        PRODUCT_PACKAGES += send_bug
-        PRODUCT_COPY_FILES += \
-                system/extras/bugmailer/bugmailer.sh:system/bin/bugmailer.sh \
-                system/extras/bugmailer/send_bug:system/bin/send_bug
-endif
-
+-include device/zte/msm7x27-common/common.mk
 $(call inherit-product-if-exists, vendor/zte/blade2/blade2-vendor.mk)

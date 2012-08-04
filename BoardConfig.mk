@@ -14,26 +14,15 @@
 # limitations under the License.
 #
 
-# This variable is set first, so it can be overridden
-# by BoardConfigVendor.mk
-USE_CAMERA_STUB := true
-
 # Use the non-open-source parts, if they're present
 -include vendor/zte/blade2/BoardConfigVendor.mk
 
-TARGET_CPU_ABI := armeabi-v6l
-TARGET_CPU_ABI2 := armeabi
-TARGET_ARCH_VARIANT := armv6-vfp
+-include device/zte/msm7x27-common/BoardConfigCommon.mk
 
 TARGET_PREBUILT_RECOVERY_KERNEL := device/zte/blade2/recovery_kernel
-BOARD_CUSTOM_GRAPHICS := ../../../device/zte/blade2/recovery/graphics.c
-BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/zte/blade2/recovery/recovery_ui.c
 TARGET_RECOVERY_INITRC := device/zte/blade2/recovery/recovery.rc
 
 # Kernel
-BUILD_KERNEL := true
-TARGET_KERNEL_SOURCE := kernel/zte/zte-kernel-msm7x27
-
 ifdef P736E
 TARGET_KERNEL_CONFIG := cyanogen_blade2_p736e_defconfig
 TARGET_PREBUILT_KERNEL := device/zte/blade2/kernel_p736e
@@ -42,12 +31,8 @@ TARGET_KERNEL_CONFIG := cyanogen_blade2_p736v_defconfig
 TARGET_PREBUILT_KERNEL := device/zte/blade2/kernel_p736v
 endif
 
-BOARD_KERNEL_BASE := 0x02600000
 BOARD_KERNEL_CMDLINE := androidboot.hardware=blade2 console=null
 
-TARGET_NO_BOOTLOADER := true
-TARGET_NO_RADIOIMAGE := true
-TARGET_BOARD_PLATFORM := msm7x27
 TARGET_BOOTLOADER_BOARD_NAME := blade2
 
 # Wi-Fi
@@ -66,39 +51,8 @@ WIFI_BAND := 802_11_ABG
 BOARD_USE_LEGACY_TOUCHSCREEN := true
 
 # Bluetooth
-BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 TARGET_NEEDS_BLUETOOTH_INIT_DELAY := true
-
-# RIL
-BOARD_PROVIDES_LIBRIL := true
-
-TARGET_SPECIFIC_HEADER_PATH := device/zte/blade2/include
-
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun0/file
-BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
-
-BOARD_USES_QCOM_HARDWARE := true
-COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DREFRESH_RATE=56 -DQCOM_ICS_COMPAT -DICS_CAMERA_BLOB -DQCOM_NO_SECURE_PLAYBACK
-BOARD_USES_QCOM_LIBS := true
-BOARD_NEEDS_MEMORYHEAPPMEM := true
-
-BOARD_EGL_CFG := device/zte/blade2/egl.cfg
-USE_OPENGL_RENDERER := true
-BOARD_ADRENO_DECIDE_TEXTURE_TARGET := true
-TARGET_USES_GENLOCK := true
-TARGET_FORCE_CPU_UPLOAD := true
-
-WITH_JIT := true
-ENABLE_JSC_JIT := true
-JS_ENGINE := v8
-HTTP := chrome
-ENABLE_WEBGL := true
-
-# FM Radio
-BOARD_FM_DEVICE := si4708
-BOARD_HAVE_FM_RADIO := true
-BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO -DFM_RADIO
 
 # dev:    size   erasesize  name
 # mtd0: 00600000 00020000 "recovery"
