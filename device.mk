@@ -19,13 +19,13 @@
 #
 # Everything in this directory will become public
 
-DEVICE_PACKAGE_OVERLAYS := device/zte/blade2/overlay
-
-# Baseband versions for device variations
+# Baseband versions and overlays for device variations
 ifdef P736E
+DEVICE_PACKAGE_OVERLAYS := device/zte/blade2/overlay_p736e
 PRODUCT_PROPERTY_OVERRIDES += \
         ro.build.baseband_version=P736EB01
 else
+DEVICE_PACKAGE_OVERLAYS := device/zte/blade2/overlay_p736v
 PRODUCT_PROPERTY_OVERRIDES += \
         ro.build.baseband_version=P736VB01
 endif
@@ -37,8 +37,6 @@ PRODUCT_PACKAGES := \
         copybit.blade2 \
         audio.primary.blade2 \
         audio_policy.blade2
-
-DISABLE_DEXPREOPT := false
 
 PRODUCT_COPY_FILES := \
         device/zte/blade2/init.blade2.rc:root/init.blade2.rc \
@@ -80,13 +78,6 @@ PRODUCT_COPY_FILES += \
         device/zte/blade2/firmware/a300_pm4.fw:system/etc/firmware/a300_pm4.fw \
         device/zte/blade2/firmware/leia_pfp_470.fw:system/etc/firmware/leia_pfp_470.fw \
         device/zte/blade2/firmware/leia_pm4_470.fw:system/etc/firmware/leia_pm4_470.fw \
-
-# Live Wallpapers
-PRODUCT_PACKAGES += \
-        LiveWallpapers \
-        LiveWallpapersPicker \
-        VisualizationWallpapers \
-        librs_jni
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \

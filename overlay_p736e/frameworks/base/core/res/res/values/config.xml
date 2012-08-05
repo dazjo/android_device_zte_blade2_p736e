@@ -143,9 +143,7 @@
              8 - Search
             16 - App switch
          For example, a device with Home, Back, Menu, and Search keys would set this
-         config to 15.
-
-    We need a better way to handle this. P736E has a Search key, P736V does not. w/ Search for now. 
-    <integer name="config_deviceHardwareKeys">15</integer> -->
+         config to 15. -->
+    <integer name="config_deviceHardwareKeys">15</integer>
 
 </resources>
