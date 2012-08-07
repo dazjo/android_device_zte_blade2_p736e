@@ -30,7 +30,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
         ro.build.baseband_version=P736VB01
 endif
 
-PRODUCT_PACKAGES := \
+PRODUCT_PACKAGES += \
         lights.blade2 \
         sensors.blade2 \
         CrescentParts \
@@ -38,7 +38,7 @@ PRODUCT_PACKAGES := \
         audio.primary.blade2 \
         audio_policy.blade2
 
-PRODUCT_COPY_FILES := \
+PRODUCT_COPY_FILES += \
         device/zte/blade2/init.blade2.rc:root/init.blade2.rc \
         device/zte/blade2/init.blade2.usb.rc:root/init.blade2.usb.rc \
         device/zte/blade2/ueventd.blade2.rc:root/ueventd.blade2.rc \
