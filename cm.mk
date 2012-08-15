@@ -21,3 +21,19 @@ PRODUCT_BRAND := ZTE
 PRODUCT_MANUFACTURER := ZTE
 PRODUCT_MODEL := Crescent
 PRODUCT_RELEASE_NAME := Crescent
+
+ifdef I_AM_DAZ
+COMMON_GLOBAL_CFLAGS += -DSUPER_SMALL
+PRODUCT_PACKAGES += \
+    Basic \
+    Galaxy4 \
+    HoloSpiralWallpaper \
+    LiveWallpapers \
+    LiveWallpapersPicker \
+    MagicSmokeWallpapers \
+    NoiseField \
+    PhaseBeam \
+    SoundRecorder \
+    VisualizationWallpapers \
+    VoiceDialer
+endif
