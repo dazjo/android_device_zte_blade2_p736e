@@ -31,6 +31,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 endif
 
 PRODUCT_PACKAGES += \
+        camera.blade2 \
         lights.blade2 \
         sensors.blade2 \
         CrescentParts \
