@@ -31,11 +31,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 endif
 
 PRODUCT_PACKAGES += \
-        camera.blade2 \
         lights.blade2 \
         sensors.blade2 \
         CrescentParts \
-        copybit.blade2 \
         audio.primary.blade2 \
         audio_policy.blade2
 
@@ -56,8 +54,7 @@ PRODUCT_COPY_FILES += \
         device/zte/blade2/prebuilt/Generic.kl:system/usr/keylayout/Generic.kl \
         device/zte/blade2/prebuilt/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
         device/zte/blade2/init.qcom.fm.sh:system/etc/init.qcom.fm.sh \
-        device/zte/blade2/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
-        device/zte/blade2/prebuilt/gralloc.blade2.so:system/lib/hw/gralloc.blade2.so
+        device/zte/blade2/init.qcom.bt.sh:system/etc/init.qcom.bt.sh
 
 # Wi-Fi
 PRODUCT_COPY_FILES += \
