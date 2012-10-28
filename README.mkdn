@@ -11,7 +11,7 @@ Use the following local_manifest.xml, other repositories are handled in cm.depen
 
     <?xml version="1.0" encoding="UTF-8"?>
       <manifest>
-      <project path="device/zte/blade2" name="Dazzozo/android_device_zte_blade2" revision="jellybean" />
+      <project path="device/zte/blade2" name="ColdFusionX/android_device_zte_blade2" revision="jellybean" />
       </manifest>
 
 Sync and build:
