@@ -24,10 +24,10 @@ TARGET_RECOVERY_INITRC := device/zte/blade2/recovery/recovery.rc
 
 # Kernel
 ifdef P736E
-TARGET_KERNEL_CONFIG := cyanogen_blade2_p736e_defconfig
+TARGET_KERNEL_CONFIG := blade2_jb_p736e_defconfig
 TARGET_PREBUILT_KERNEL := device/zte/blade2/kernel_p736e
 else
-TARGET_KERNEL_CONFIG := cyanogen_blade2_p736v_defconfig
+TARGET_KERNEL_CONFIG := blade2_jb_p736v_defconfig
 TARGET_PREBUILT_KERNEL := device/zte/blade2/kernel_p736v
 endif
 
