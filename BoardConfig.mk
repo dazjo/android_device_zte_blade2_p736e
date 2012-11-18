@@ -14,10 +14,8 @@
 # limitations under the License.
 #
 
-# Use the non-open-source parts, if they're present
--include vendor/zte/blade2/BoardConfigVendor.mk
-
 -include device/zte/msm7x27-common/BoardConfigCommon.mk
+-include vendor/zte/blade2/BoardConfigVendor.mk
 
 TARGET_PREBUILT_RECOVERY_KERNEL := device/zte/blade2/recovery_kernel
 TARGET_RECOVERY_INITRC := device/zte/blade2/recovery/recovery.rc
@@ -52,7 +50,6 @@ BOARD_USE_LEGACY_TOUCHSCREEN := true
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH_BCM := true
-TARGET_NEEDS_BLUETOOTH_INIT_DELAY := true
 
 # dev:    size   erasesize  name
 # mtd0: 00600000 00020000 "recovery"

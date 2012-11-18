@@ -14,11 +14,6 @@
 # limitations under the License.
 #
 
-# This file includes all definitions that apply to ALL blade2 devices, and
-# are also specific to blade2 devices
-#
-# Everything in this directory will become public
-
 # Baseband versions for device variations
 ifdef P736E
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -35,11 +30,14 @@ PRODUCT_PACKAGES += \
         audio.primary.blade2 \
         audio_policy.blade2
 
+# Enable repeatable keys in CWM
+PRODUCT_PROPERTY_OVERRIDES += \
+        ro.cwm.enable_key_repeat=true
+
 PRODUCT_COPY_FILES += \
         device/zte/blade2/init.blade2.rc:root/init.blade2.rc \
         device/zte/blade2/init.blade2.usb.rc:root/init.blade2.usb.rc \
         device/zte/blade2/ueventd.blade2.rc:root/ueventd.blade2.rc \
-        device/zte/blade2/usbconfig:root/sbin/usbconfig \
         device/zte/blade2/prebuilt/qwerty.kl:system/usr/keylayout/qwerty.kl \
         device/zte/blade2/prebuilt/blade2_keypad.kl:system/usr/keylayout/blade2_keypad.kl \
         device/zte/blade2/prebuilt/atmel-touchscreen.kl:system/usr/keylayout/atmel-touchscreen.kl \
