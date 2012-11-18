@@ -3,15 +3,14 @@ CyanogenMod device configuration for the ZTE Blade S / ZTE Crescent aka Orange S
 How to Build
 ---------------
 
-Instead of initialising from the official CM repositories, initialising from CFX avoids the need for manually applying compatibility patches:
-
-	repo init -u git://github.com/ColdFusionX/android.git -b jellybean
-
-Use the following local_manifest.xml, other repositories are handled in cm.dependencies automatically:
+Use the following local_manifest.xml:
 
     <?xml version="1.0" encoding="UTF-8"?>
       <manifest>
       <project path="device/zte/blade2" name="Dazzozo/android_device_zte_blade2" revision="jellybean" />
+      <project path="device/zte/msm7x27-common" name="ColdFusionX/android_device_zte_msm7x27-common" revision="jellybean" />
+      <project path="kernel/zte/msm7x27" name="ColdFusionX/android_kernel_zte_msm7x27" revision="jellybean" />
+      <project path="vendor/zte" name="Dazzozo/proprietary_vendor_zte" revision="ics" />
       </manifest>
 
 Sync and build:
