@@ -19,13 +19,11 @@
 #
 # Everything in this directory will become public
 
-# Baseband versions and overlays for device variations
+# Baseband versions for device variations
 ifdef P736E
-DEVICE_PACKAGE_OVERLAYS := device/zte/blade2/overlay_p736e
 PRODUCT_PROPERTY_OVERRIDES += \
         ro.build.baseband_version=P736EB01
 else
-DEVICE_PACKAGE_OVERLAYS := device/zte/blade2/overlay_p736v
 PRODUCT_PROPERTY_OVERRIDES += \
         ro.build.baseband_version=P736VB01
 endif
