@@ -22,11 +22,8 @@
 #
 
 # Inherit from those products. Most specific first.
-ifneq ($(CFX_BUILD),)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/small_base_telephony.mk)
-else
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-endif
+
 # Inherit from blade device
 $(call inherit-product, device/zte/blade2/device.mk)
 
