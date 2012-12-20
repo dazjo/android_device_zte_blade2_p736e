@@ -31,7 +31,8 @@ endif
 
 BOARD_KERNEL_CMDLINE := androidboot.hardware=blade2 console=null
 
-TARGET_BOOTLOADER_BOARD_NAME := blade2
+TARGET_BOOTLOADER_NAME := blade2
+TARGET_OTA_ASSERT_DEVICE := blade2
 
 # Wi-Fi
 BOARD_WLAN_DEVICE := bcmdhd
@@ -50,6 +51,7 @@ BOARD_USE_LEGACY_TOUCHSCREEN := true
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH_BCM := true
+BOARD_BLUEDROID_VENDOR_CONF := device/zte/blade2/bluetooth/libbt_vndcfg.txt
 
 # dev:    size   erasesize  name
 # mtd0: 00600000 00020000 "recovery"
