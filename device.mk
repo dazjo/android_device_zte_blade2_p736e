@@ -14,6 +14,9 @@
 # limitations under the License.
 #
 
+include device/zte/msm7x27-common/common.mk
+$(call inherit-product, vendor/zte/blade2/blade2-vendor.mk)
+
 # Baseband versions for device variations
 ifdef P736E
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -24,11 +27,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 endif
 
 PRODUCT_PACKAGES += \
-        lights.blade2 \
-        sensors.blade2 \
-        CrescentParts \
-        audio.primary.blade2 \
-        audio_policy.blade2
+        CrescentParts
 
 # Enable repeatable keys in CWM
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -77,6 +76,3 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
         frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
         frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml
-
--include device/zte/msm7x27-common/common.mk
-$(call inherit-product-if-exists, vendor/zte/blade2/blade2-vendor.mk)
