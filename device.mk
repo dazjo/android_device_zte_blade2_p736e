@@ -48,8 +48,7 @@ PRODUCT_COPY_FILES += \
         device/zte/blade2/prebuilt/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
         device/zte/blade2/prebuilt/Generic.kl:system/usr/keylayout/Generic.kl \
         device/zte/blade2/prebuilt/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
-        device/zte/blade2/init.qcom.fm.sh:system/etc/init.qcom.fm.sh \
-        device/zte/blade2/init.qcom.bt.sh:system/etc/init.qcom.bt.sh
+        device/zte/blade2/init.qcom.fm.sh:system/etc/init.qcom.fm.sh
 
 # Wi-Fi
 PRODUCT_COPY_FILES += \
