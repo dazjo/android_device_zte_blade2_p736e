@@ -17,16 +17,14 @@
 -include device/zte/msm7x27-common/BoardConfigCommon.mk
 -include vendor/zte/blade2/BoardConfigVendor.mk
 
-TARGET_PREBUILT_RECOVERY_KERNEL := device/zte/blade2/recovery_kernel
+TARGET_PREBUILT_RECOVERY_KERNEL := device/zte/blade2/prebuilt/recovery_kernel
 TARGET_RECOVERY_INITRC := device/zte/blade2/recovery/recovery.rc
 
 # Kernel
 ifdef P736E
 TARGET_KERNEL_CONFIG := blade2_jb_p736e_defconfig
-TARGET_PREBUILT_KERNEL := device/zte/blade2/kernel_p736e
 else
 TARGET_KERNEL_CONFIG := blade2_jb_p736v_defconfig
-TARGET_PREBUILT_KERNEL := device/zte/blade2/kernel_p736v
 endif
 
 BOARD_KERNEL_CMDLINE := androidboot.hardware=blade2 console=null

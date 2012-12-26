@@ -34,9 +34,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
         ro.cwm.enable_key_repeat=true
 
 PRODUCT_COPY_FILES += \
-        device/zte/blade2/init.blade2.rc:root/init.blade2.rc \
-        device/zte/blade2/init.blade2.usb.rc:root/init.blade2.usb.rc \
-        device/zte/blade2/ueventd.blade2.rc:root/ueventd.blade2.rc \
+        device/zte/blade2/ramdisk/init.blade2.rc:root/init.blade2.rc \
+        device/zte/blade2/ramdisk/init.blade2.usb.rc:root/init.blade2.usb.rc \
+        device/zte/blade2/ramdisk/ueventd.blade2.rc:root/ueventd.blade2.rc \
         device/zte/blade2/prebuilt/qwerty.kl:system/usr/keylayout/qwerty.kl \
         device/zte/blade2/prebuilt/blade2_keypad.kl:system/usr/keylayout/blade2_keypad.kl \
         device/zte/blade2/prebuilt/atmel-touchscreen.kl:system/usr/keylayout/atmel-touchscreen.kl \
@@ -74,4 +74,5 @@ PRODUCT_COPY_FILES += \
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
         frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
+        frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
         frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml
