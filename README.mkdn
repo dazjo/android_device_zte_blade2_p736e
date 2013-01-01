@@ -7,6 +7,11 @@ Initialise from androidarmv6:
 
     repo init -u git://github.com/androidarmv6/android.git -b cm-10.1
 
+Get blade2 device configuration and kernel:
+
+    git clone git://github.com/Dazzozo/android_device_zte_blade2.git device/zte/blade2 -b cm-10.1
+    git clone git://github.com/Dazzozo/android_kernel_zte_msm7x27.git kernel/zte/msm7x27 -b cm-10.1
+
 Sync and build:
 
     repo sync -j4
