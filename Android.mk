@@ -22,6 +22,6 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_DEVICE),blade2)
+ifeq ($(TARGET_DEVICE),blade2_p736v)
 include $(call all-makefiles-under,$(LOCAL_PATH))
 endif
