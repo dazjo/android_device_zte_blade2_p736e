@@ -1,4 +1,5 @@
-# Copyright (C) 2011 The Android Open Source Project
+#
+# Copyright (C) 2013 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -21,10 +22,6 @@
 # lines, full and toro, hence its name.
 #
 
-# Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/generic_no_telephony.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/telephony.mk)
-
 # Inherit from blade2 device.
 $(call inherit-product, device/zte/blade2_p736v/device.mk)
 $(call inherit-product, device/zte/blade2-common/common.mk)
@@ -35,3 +32,4 @@ PRODUCT_DEVICE := blade2_p736v
 PRODUCT_BRAND := ZTE
 PRODUCT_MANUFACTURER := ZTE
 PRODUCT_MODEL := Crescent
+PRODUCT_RELEASE_NAME := Crescent
