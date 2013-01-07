@@ -14,5 +14,9 @@
 # limitations under the License.
 #
 
+# Overlay for a difference in hardware buttons
+DEVICE_PACKAGE_OVERLAYS += device/zte/blade2_p736v/overlay
+
+# Set the baseband
 PRODUCT_PROPERTY_OVERRIDES += \
         ro.build.baseband_version=P736VB01

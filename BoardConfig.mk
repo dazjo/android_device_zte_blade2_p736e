@@ -16,6 +16,7 @@
 
 -include device/zte/blade2-common/BoardConfigCommon.mk
 
+# Configure kernel with the correct touchscreen settings
 TARGET_KERNEL_CONFIG := blade2_jb_p736v_defconfig
 
 TARGET_BOOTLOADER_NAME := blade2
