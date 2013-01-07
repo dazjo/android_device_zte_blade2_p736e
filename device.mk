@@ -15,8 +15,8 @@
 #
 
 # Overlay for a difference in hardware buttons
-DEVICE_PACKAGE_OVERLAYS += device/zte/blade2_p736v/overlay
+DEVICE_PACKAGE_OVERLAYS += device/zte/blade2_p736e/overlay
 
 # Set the baseband
 PRODUCT_PROPERTY_OVERRIDES += \
-        ro.build.baseband_version=P736VB01
+        ro.build.baseband_version=P736EB01

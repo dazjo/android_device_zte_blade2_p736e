@@ -23,12 +23,12 @@
 #
 
 # Inherit from blade2 device.
-$(call inherit-product, device/zte/blade2_p736v/device.mk)
+$(call inherit-product, device/zte/blade2_p736e/device.mk)
 $(call inherit-product, device/zte/blade2-common/common.mk)
 
 # Set those variables here to overwrite the inherited values.
-PRODUCT_NAME := zte_blade2_p736v
-PRODUCT_DEVICE := blade2_p736v
+PRODUCT_NAME := zte_blade2_p736e
+PRODUCT_DEVICE := blade2_p736e
 PRODUCT_BRAND := ZTE
 PRODUCT_MANUFACTURER := ZTE
 PRODUCT_MODEL := Crescent

@@ -15,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/blade2_p736v.mk
+    $(LOCAL_DIR)/blade2_p736e.mk
