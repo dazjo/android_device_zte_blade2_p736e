@@ -5,20 +5,20 @@ How to Build
 
 Initialise from androidarmv6:
 
-    repo init -u git://github.com/androidarmv6/android.git -b cm-10.1
+    repo init -u git://github.com/androidarmv6/android.git -b cm-10.2
 
 Use the following local manifest:
 
     <?xml version="1.0" encoding="UTF-8"?>
     <manifest>
-      <project name="Dazzozo/android_device_zte_blade2-common" path="device/zte/blade2-common" remote="github" revision="cm-10.1" />
-      <project name="Dazzozo/android_device_zte_blade2_p736e" path="device/zte/blade2_p736e" remote="github" revision="cm-10.1" />
-      <project name="Dazzozo/android_device_zte_blade2_p736v" path="device/zte/blade2_p736v" remote="github" revision="cm-10.1" />
-      <project name="Dazzozo/android_kernel_zte_msm7x27" path="kernel/zte/msm7x27" remote="github" revision="cm-10.1" />
-      <project name="Dazzozo/proprietary_vendor_zte" path="vendor/zte" remote="github" revision="cm-10.1" />
-      <project name="androidarmv6/android_device_qcom_msm7x27" path="device/qcom/msm7x27" remote="github" revision="cm-10.1" />
-      <project name="androidarmv6/android_device_zte_msm7x27-common" path="device/zte/msm7x27-common" remote="github" revision="cm-10.1" />
-      <project name="androidarmv6/android_vendor_qcom_msm7x27" path="vendor/qcom/msm7x27" remote="github" revision="cm-10.1" />
+      <project name="Dazzozo/android_device_zte_blade2-common" path="device/zte/blade2-common" remote="github" revision="cm-10.2" />
+      <project name="Dazzozo/android_device_zte_blade2_p736e" path="device/zte/blade2_p736e" remote="github" revision="cm-10.2" />
+      <project name="Dazzozo/android_device_zte_blade2_p736v" path="device/zte/blade2_p736v" remote="github" revision="cm-10.2" />
+      <project name="Dazzozo/android_kernel_zte_msm7x27" path="kernel/zte/msm7x27" remote="github" revision="cm-10.2" />
+      <project name="Dazzozo/proprietary_vendor_zte" path="vendor/zte" remote="github" revision="cm-10.2" />
+      <project name="androidarmv6/android_device_qcom_msm7x27" path="device/qcom/msm7x27" remote="github" revision="cm-10.2" />
+      <project name="androidarmv6/android_device_zte_msm7x27-common" path="device/zte/msm7x27-common" remote="github" revision="cm-10.2" />
+      <project name="androidarmv6/android_vendor_qcom_msm7x27" path="vendor/qcom/msm7x27" remote="github" revision="cm-10.2" />
     </manifest>
 
 Sync and build:
